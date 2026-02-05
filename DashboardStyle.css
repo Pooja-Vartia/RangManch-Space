@@ -11,8 +11,8 @@
 }
 #BoxElements {
   margin: 0 auto;
-  width: 50vw;
-  height: 70vh;
+  width: 80vw;
+  height: 100%;
   outline: none;
   border-radius: 30px;
   box-shadow: 0 0 50px gainsboro;
@@ -20,7 +20,7 @@
 #BoxElements h3{
   color: white;
   margin: 0;
-  width: 50vw;
+  width: 80vw;
   margin: 0 auto;
   height: 10vh;
   justify-content: center center;
@@ -45,6 +45,32 @@ input[type="color"] {
 }
 .rightPart{
   border-left: 2px solid rgba(244, 180, 19, 0.898);
-  height: 30vh;
+  height: auto;
+  width: auto;
 }
-
+ button:hover{
+  border: 2px solid rgba(244, 180, 19, 0.898) ;
+  /* box-shadow: 0 0 10px gainsboro; */
+}
+ .circular-chart {
+      display: block;
+      margin: 20px auto;
+      max-width: 120px;
+    }
+    .circle-bg {
+      fill: none;
+      stroke: #eee;
+      stroke-width: 3.8;
+    }
+    .circle {
+      fill: none;
+      stroke-width: 2.8;
+      stroke: #4caf50;
+      stroke-linecap: round;
+      transition: stroke-dasharray 0.5s;
+    }
+    .percentage {
+      fill: #333;
+      font-size: 0.5em;
+      text-anchor: middle;
+    }
