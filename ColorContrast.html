@@ -45,13 +45,13 @@
               type="color"
               id="bgColor"
               value="#631d35"
-              class=" btn col-lg-12 "
+              class=" btn col-lg-8 "
             />
              <input
               type="color"
               id="bgColorCode"
               value="#31ce1c"
-              class=" btn col-lg-12 "
+              class=" btn col-lg-8 "
             />
           </div>
           <div class="p-2">
@@ -61,22 +61,22 @@
               type="color"
               id="Colorcode"
               value="#d780ff"
-              class=" btn col-lg-12 "
+              class=" btn col-lg-8 "
             />
              <input
               type="color"
               id="bgColorCode"
               value="#530f80"
-              class=" btn btn-outline-dark col-lg-12 "
+              class=" btn btn-outline-dark col-lg-8 "
             />
             
-            <div class="p-2 d-flex col-lg-12">
-              <label for="gradStart"><h5>Gradient Start</h5></label>
+            <div class="p-2 d-flex col-lg-8">
+              <label for="gradStart"><h5>Gradient Start </h5></label>
               <input
                 type="color"
                 id="gradStart"
                 value="#e64141"
-                class="btn btn-outline-dark col-lg-6 "
+                class="btn btn-outline-dark col-lg-7 "
               />
             </div>
           </div>
@@ -87,7 +87,7 @@
             type="color"
             id="gradEnd"
             value="#ffee80"
-            class="btn btn-outline-dark col-lg-6 "
+            class="btn btn-outline-dark col-lg-5 "
             />
           </div>
           <button type="button" class="btn" id="applyGradient">
@@ -95,15 +95,56 @@
           </button>
           <div class="p-2">
 
-            
+            <!-- rgb(101, 207, 101) -->
             <div class="palette" id="paletteContainer"></div>
           </div>
         </div>
-        <div class="col-lg-6 rightPart">
-          <button class="btn m-3 text text-center" id="randomize">Surprise Me 🎲</button>
-          <button class="btn m-3 text text-center" id="savePalette"><h2>Save Palette</h2></button>
+        <div class="col-lg-6 rightPart " >
+          <div class="d-flex mt-3 ">
+            <h4 class="text-center text-primary m-2 " 
+            style="
+            font-weight: bold;
+            ">SURPRISE ME</h4>
+             <button type="button" class="btn px-5" id="randomize">
+               <i class="fa-solid fa-dice "
+               style="font-size: 60px;color: rgba(74, 74, 194, 0.789);"></i>   
+              </button>
+            </div>
+            <div class="d-flex mt-3">
+               <h4 class="text-center text-primary m-2 " 
+               style="
+               font-weight: bold;
+               ">SAVE PALETTE</h4>
+              <button type="button" class="btn px-5" id="savePalette">
+                <i class="fa-solid fa-cloud-arrow-down "
+                style="font-size:60px;color: rgba(74, 74, 194, 0.789);"
+                ></i>
+               </button>
+            </div>
+            <div>
+
+              <svg viewBox="0 0 36 36" class="circular-chart">
+    <path class="circle-bg"
+      d="M18 2.0845
+         a 15.9155 15.9155 0 0 1 0 31.831
+         a 15.9155 15.9155 0 0 1 0 -31.831"/>
+    <path id="progress" class="circle"
+      stroke-dasharray="0, 100"
+      d="M18 2.0845
+         a 15.9155 15.9155 0 0 1 0 31.831
+         a 15.9155 15.9155 0 0 1 0 -31.831"/>
+    <text x="18" y="20.35" id="ratioText" class="percentage">0:1</text>
+  </svg>
+<h5>BEST COLOR CONTRAST</h5>
+  <p id="result"></p>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
+
+
+    
   </body>
 </html>
