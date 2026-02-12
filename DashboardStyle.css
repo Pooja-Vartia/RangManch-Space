@@ -1,33 +1,53 @@
  body {
    font-family: Arial, sans-serif;
-   
+   height: 100vh;
   }
   #heading{
   color: white;
   font-weight: bold;
+  background-color: rgba(74, 74, 194, 0.789);
+  /* box-shadow: 0 0 10px gainsboro; */
+  
 }       
 .fa-notdog-duo{
   color: rgb(8, 237, 50);
 }
-#BoxElements {
-  margin: 0 auto;
-  width: 80vw;
-  height: 100%;
+#BoxElements .row{
+  margin: 0 ;
+  width: 100%;
+  height: 100vh;
   outline: none;
-  border-radius: 30px;
   box-shadow: 0 0 50px gainsboro;
 }
-#BoxElements h3{
-  color: white;
-  margin: 0;
-  width: 80vw;
+
+#LeftPart{
+  background-color: white;
+  color: black;
+  height: 100vh;
+  border: none;
+  /* border-radius: 0px 10px 0 0; */
+  /* border-right:1px solid grey; */
+  box-shadow: 0 0 20px gainsboro;
+}
+#LeftPart .i{
+  font-size: 20px;
+}
+#MiddlePart {
+
+  height: 60vh;        /* full viewport height */
+    /* scroll only inside middle part */
+
+}
+#MiddlePart h3{
   margin: 0 auto;
-  height: 10vh;
-  justify-content: center center;
-  align-items: center;
-  border-radius: 30px 30px 0px 0px;
-  border: 2px solid white;
-  background-color: rgba(0, 0, 255, 0.52);
+  /* height: 60vh; */
+  /* display: flex; */
+  text-align: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.Middlebuttons button:hover{
+ height: 5vh;
 }
 input{
   outline: none;
@@ -44,18 +64,50 @@ input[type="color"] {
  box-shadow: 0 0 10px gainsboro;
 }
 .rightPart{
-  border-left: 2px solid rgba(244, 180, 19, 0.898);
-  height: auto;
-  width: auto;
+  /* display: flex;
+  justify-self: end; */
+   /* push last column to right */
+   background-color: white;
+  color: black;
+  height: 100vh;
+  border: none;
+  /* border-radius: 10px 0 0 0; */
+  /* border-right:1px solid grey; */
+  box-shadow: 0 0 20px gainsboro;
 }
- button:hover{
-  border: 2px solid rgba(244, 180, 19, 0.898) ;
-  /* box-shadow: 0 0 10px gainsboro; */
+/* Common button style */
+.custom-btn {
+  /* padding: 15px 40px; */
+  border: none;
+  background-color: transparent; /* ya apni pasand ka color */
+  cursor: pointer;
 }
+
+/* Icon size + color */
+.custom-btn i {
+  font-size: 40px;
+  /* color: rgba(74, 74, 194, 0.789); */
+}
+
+/* Remove focus/active outline */
+.custom-btn:focus,
+.custom-btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Hover effect for better UX */
+.custom-btn:hover i {
+  color: rgba(74, 74, 194, 1); 
+  transform: scale(1.1);
+  transform: rotate(360deg);
+  transition: 0.3s ease;
+}
+
  .circular-chart {
       display: block;
-      margin: 20px auto;
-      max-width: 120px;
+      /* margin: 20px auto; */
+      max-width: 220px;
     }
     .circle-bg {
       fill: none;
@@ -74,3 +126,32 @@ input[type="color"] {
       font-size: 0.5em;
       text-anchor: middle;
     }
+    .palette {
+  margin-top: 10px;
+}
+.d-none {
+  display: none;
+}
+#headingId {
+  height: 10vh;
+}
+.plain-textarea {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  resize: none;
+  box-shadow: none !important;
+  color: inherit; 
+  height: 60vh;
+}
+
+.plain-textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  color: inherit; 
+
+}
+.dropdown-menu {
+  position: fixed !important;  /* floats relative to viewport */
+  z-index: 5000 !important;    /* ensures it stays above rows */
+}
