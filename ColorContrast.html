@@ -18,133 +18,577 @@
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
     />
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="DashboardStyle.css" />
     <title>Play Using CloudColors Dashboard</title>
   </head>
-  <body class="conatiner">
-    <h1 class="text-center p-4 m-0 bg-primary" id="heading">
+  <body class="conatiner-fluid">
+    <h3 class="text-left text col-12 p-4 m-0" id="heading">
       <i class="fa-notdog-duo fa-solid fa-palette" style="font-size: 50px"></i>
       CloudColors Dashboard
-    </h1>
-
-    <h3 class="text text-center p-3">
-      Play with background, text, and gradients!
+      <img
+        src="colored-pencils.png"
+        alt="loading"
+        class="img img-fluid w-30"
+        id="headingId"
+      />
     </h3>
 
-    <div
-      class="d-flex justify-content-center align-items center"
-      id="BoxElements"
-    >
-      <div class="row">
-        <h3 class="d-block conatiner text text-center">CONTRAST CHEAKER</h3>
-        <div class="col-lg-6">
-          <div class="p-2 ">
-            <label for="bgColor text"><h5>Background</h5></label>
-            <br>
-            <input
-              type="color"
-              id="bgColor"
-              value="#631d35"
-              class=" btn col-lg-8 "
-            />
-             <input
-              type="color"
-              id="bgColorCode"
-              value="#31ce1c"
-              class=" btn col-lg-8 "
-            />
-          </div>
-          <div class="p-2">
-            <label for="textColor"><h5>Forground</h5></label>
-            <br>
-             <input
-              type="color"
-              id="Colorcode"
-              value="#d780ff"
-              class=" btn col-lg-8 "
-            />
-             <input
-              type="color"
-              id="bgColorCode"
-              value="#530f80"
-              class=" btn btn-outline-dark col-lg-8 "
-            />
-            
-            <div class="p-2 d-flex col-lg-8">
-              <label for="gradStart"><h5>Gradient Start </h5></label>
-              <input
-                type="color"
-                id="gradStart"
-                value="#e64141"
-                class="btn btn-outline-dark col-lg-7 "
-              />
+   
+    <div class="Middlebuttons d-flex overflow-auto mt-0">
+      <div
+        id="colorMenuCarousel"
+        class="carousel slide col-lg-12 col-md-12 col-sm-12 col-xs-12 m-0"
+        data-bs-ride="carousel"
+        style="background-color: white"
+      >
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-around">
+              <div class="col-lg-2 dropdown " >
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown"  aria-expanded="false" id="darkBtn">
+                  <i class="fa-solid fa-lightbulb"></i>
+                  Dark Colors</button>
+                <ul class="dropdown-menu " aria-labelledby="darkBtn"> 
+                  <li> <div class="palette col-lg-6" id="darkPalette"></div> </li> 
+                </ul>
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
+                id="lightBtn">
+                <i class="fa-regular fa-lightbulb"></i>
+                Light Colors</button>
+                <ul class="dropdown-menu " aria-labelledby="lightBtn"> 
+                  <li> <div class="palette" id="lightPalette"></div>  </li> 
+                </ul>
+                  
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
+                id="primaryBtn">
+                                 <i class="fas fa-home primary-icon"></i>
+                Primary Colors</button>
+                <!-- primaryPalette -->
+                 <ul class="dropdown-menu " aria-labelledby="primaryBtn"> 
+                  <li> <div class="palette" id="primaryPalette"></div>  </li> 
+                </ul>
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
+                id="secondaryBtn">
+                 <i class="fas fa-heart text-secondary"></i>
+                Secondary Colors</button>
+                 <ul class="dropdown-menu " aria-labelledby="secondaryBtn"> 
+                  <li> <div class="palette" id="secondaryPalette"></div>  </li> 
+                </ul>
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                 aria-expanded="false" id="pastelBtn">
+                  <i class="fas fa-heart pastel-icon"></i>
+                 Pastel Colors</button>
+                 <ul class="dropdown-menu " aria-labelledby="pastelBtn"> 
+                  <li> <div class="palette" id="pastelPalette"></div>  </li> 
+                </ul>
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="earthBtn">
+                  <i class="fas fa-earth-americas"></i>
+                  Earth Tones</button>
+                <ul class="dropdown-menu " aria-labelledby="earthBtn"> 
+                  <li> <div class="palette" id="earthPalette"></div>  </li> 
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="p-2">
 
-            <label for="gradEnd"><h5>Gradient End</h5></label>
-            <input
-            type="color"
-            id="gradEnd"
-            value="#ffee80"
-            class="btn btn-outline-dark col-lg-5 "
-            />
-          </div>
-          <button type="button" class="btn" id="applyGradient">
-           <h4 class=""> Apply Gradient</h4>
-          </button>
-          <div class="p-2">
-
-            <!-- rgb(101, 207, 101) -->
-            <div class="palette" id="paletteContainer"></div>
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="d-flex justify-content-around">
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
+                  id="tertiaryBtn">
+                  <i class="fas fa-star tertiary-color"></i>
+                  Tertiary Colors</button>
+                  <ul class="dropdown-menu " aria-labelledby="tertiaryBtn"> 
+                  <li> <div class="palette" id="tertiaryPalette"></div>  </li> 
+                </ul>
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
+                  id="warmBtn">
+                  <i class="fa-solid fa-temperature-arrow-up"></i>
+                  Warm Colors</button>
+                  <ul class="dropdown-menu " aria-labelledby="warmBtn"> 
+                  <li> <div class="palette" id="warmPalette"></div>  </li> 
+                </ul>
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false" 
+                 id="coolBtn">
+                 <i class="fa-solid fa-fan"></i>
+                 Cool Colors</button>
+                 <ul class="dropdown-menu " aria-labelledby="coolBtn"> 
+                  <li> <div class="palette" id="coolPalette"></div>  </li> 
+                </ul>
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
+                  id="neutralBtn">
+                  <i class="fa-solid fa-circle-half-stroke"></i>
+                  Neutral Colors</button>
+                  <ul class="dropdown-menu " aria-labelledby="neutralBtn"> 
+                  <li> <div class="palette" id="neutralPalette"></div>  </li> 
+                </ul>
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
+                  id="oceanBtn">
+                  <i class="fa-solid fa-water"></i>
+                  Ocean Colors</button>
+                  <ul class="dropdown-menu " aria-labelledby="oceanBtn"> 
+                  <li> <div class="palette" id="oceanPalette"></div>  </li> 
+                </ul>
+              </div>
+              <div class="col-lg-2 dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
+                  id="sunsetBtn">
+                  <i class="fa-solid fa-sun"></i>
+                  Sunset Colors</button>
+                  <ul class="dropdown-menu " aria-labelledby="sunsetBtn"> 
+                  <li> <div class="palette" id="sunsetPalette"></div>  </li> 
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-lg-6 rightPart " >
-          <div class="d-flex mt-3 ">
-            <h4 class="text-center text-primary m-2 " 
-            style="
-            font-weight: bold;
-            ">SURPRISE ME</h4>
-             <button type="button" class="btn px-5" id="randomize">
-               <i class="fa-solid fa-dice "
-               style="font-size: 60px;color: rgba(74, 74, 194, 0.789);"></i>   
-              </button>
-            </div>
-            <div class="d-flex mt-3">
-               <h4 class="text-center text-primary m-2 " 
-               style="
-               font-weight: bold;
-               ">SAVE PALETTE</h4>
-              <button type="button" class="btn px-5" id="savePalette">
-                <i class="fa-solid fa-cloud-arrow-down "
-                style="font-size:60px;color: rgba(74, 74, 194, 0.789);"
-                ></i>
-               </button>
-            </div>
-            <div>
 
-              <svg viewBox="0 0 36 36" class="circular-chart">
-    <path class="circle-bg"
-      d="M18 2.0845
-         a 15.9155 15.9155 0 0 1 0 31.831
-         a 15.9155 15.9155 0 0 1 0 -31.831"/>
-    <path id="progress" class="circle"
-      stroke-dasharray="0, 100"
-      d="M18 2.0845
-         a 15.9155 15.9155 0 0 1 0 31.831
-         a 15.9155 15.9155 0 0 1 0 -31.831"/>
-    <text x="18" y="20.35" id="ratioText" class="percentage">0:1</text>
-  </svg>
-<h5>BEST COLOR CONTRAST</h5>
-  <p id="result"></p>
-            </div>
+       
+        <button
+          class="carousel-control-next bg-warning"
+          type="button"
+          data-bs-target="#colorMenuCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
 
-          </div>
+    <div class="row mt-0" id="BoxElements">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 m-0" id="LeftPart">
+        <!-- background color layer -->
+        <div class="p-1">
+          <label for="bgColor">
+            <h6>Background</h6>
+          </label>
+          <br />
+          <input
+            type="color"
+            id="bgColor"
+            value="#ffffff"
+            class="text btn col-lg-6 col-md-6 col-sm-6 col-xs-6"
+          />
+        </div>
+        <!-- forground color layer -->
+        <div class="p-1">
+          <label for="textColor">
+            <h6>Forground</h6>
+          </label>
+          <br />
+          <input
+            type="color"
+            id="textColor"
+            value="#000000"
+            class="btn col-lg-6 col-md-6 col-sm-6 col-xs-6"
+          />
+        </div>
+
+        <!-- gradStart -->
+        <div class="p-1">
+          <label for="gradStart">
+            <h6>Gradient Start</h6>
+          </label>
+          <br />
+          <input
+            type="color"
+            id="gradStart"
+            value="#8fcce0"
+            class="btn col-lg-6 col-md-6 col-sm-6 col-xs-6"
+          />
+        </div>
+        <div class="p-1">
+          <label for="gradEnd"><h6>Gradient End</h6></label>
+          <br />
+          <input
+            type="color"
+            id="gradEnd"
+            value="#e5b3e6"
+            class="btn col-lg-6 col-md-6 col-sm-6 col-xs-6"
+          />
+        </div>
+        <button
+          type="button"
+          class="btn btn-outline-dark text"
+          id="applyGradient"
+          style="margin: 0% auto"
+        >
+          <h6 class="text text-center">Apply Gradient</h6>
+        </button>
+
+        <hr />
+        <div id="cssOutput"></div>
+
+        <div class="p-3">
+          <!-- rgb(101, 207, 101) -->
+          <div class="palette" id="paletteContainer"></div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 m-0" id="MiddlePart">
+        <h3 class="text mt-5 center">CONTRAST CHEAKER</h3>
+        <textarea
+          class="form-control plain-textarea mt-2"
+          rows="50"
+          placeholder="Type your paragraph here..."
+        ></textarea>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 rightPart">
+        <!-- Surprise Me -->
+        <div>
+          <h6 class="text-primary fw-bold">SURPRISE ME</h6>
+          <button type="button" class="btn custom-btn" id="randomize">
+            <i class="fa-solid fa-dice"></i>
+          </button>
+        </div>
+
+        <!-- Save Palette -->
+        <div>
+          <h6 class="text-primary fw-bold">SAVE PALETTE</h6>
+          <button type="button" class="btn custom-btn " id="savePalette">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+          </button>
+        </div>
+        <!-- CSS Output -->
+        <div class=" mt-4">
+          <svg viewBox="0 0 36 36" class="circular-chart col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <path
+              class="circle-bg"
+              d="M18 2.0845
+       a 15.9155 15.9155 0 0 1 0 31.831
+       a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+            <path
+              id="progress"
+              class="circle"
+              stroke-dasharray="0, 100"
+              d="M18 2.0845
+       a 15.9155 15.9155 0 0 1 0 31.831
+       a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+            <text x="18" y="20.35" id="ratioText" class="percentage">0:1</text>
+          </svg>
+
+          <p class="text text-center" style="color: rgba(61, 51, 90, 0.849)">
+            BEST COLOR CONTRAST
+          </p>
+          <p id="result"></p>
         </div>
       </div>
     </div>
 
+    <script>
+      const bgPicker = document.getElementById("bgColor");
+      const textPicker = document.getElementById("textColor");
+      const gradStart = document.getElementById("gradStart");
+      const gradEnd = document.getElementById("gradEnd");
+      const cssOutput = document.getElementById("cssOutput");
+      const paletteContainer = document.getElementById("paletteContainer");
 
-    
+      // Apply background color
+      bgPicker.addEventListener("input", updateColors);
+      textPicker.addEventListener("input", updateColors);
+
+      function updateColors() {
+        document.body.style.background = bgPicker.value;
+        document.body.style.color = textPicker.value;
+        showCSS();
+      }
+
+      // Apply gradient
+      document.getElementById("applyGradient").addEventListener("click", () => {
+        document.body.style.background = `linear-gradient(45deg, ${gradStart.value}, ${gradEnd.value})`;
+        showCSS();
+      });
+
+      // Save palette
+      document.getElementById("savePalette").addEventListener("click", () => {
+        const swatch = document.createElement("div");
+        swatch.className = "swatch";
+        swatch.style.background = document.body.style.background;
+        swatch.dataset.bg = document.body.style.background;
+        swatch.dataset.text = document.body.style.color;
+        swatch.addEventListener("click", () => {
+          document.body.style.background = swatch.dataset.bg;
+          document.body.style.color = swatch.dataset.text;
+          showCSS();
+        });
+        paletteContainer.appendChild(swatch);
+      });
+
+      // Randomizer
+      document.getElementById("randomize").addEventListener("click", () => {
+        const randomColor = () =>
+          "#" + Math.floor(Math.random() * 16777215).toString(16);
+        bgPicker.value = randomColor();
+        textPicker.value = randomColor();
+        updateColors();
+      });
+
+      // Show CSS snippet
+      function showCSS() {
+        cssOutput.textContent = `Background: ${document.body.style.background}  Text : ${document.body.style.color}`;
+      }
+
+      // Initialize
+      updateColors();
+
+
+ // Function to calculate relative luminance
+    function luminance(r, g, b) {
+      let a = [r, g, b].map(function(v) {
+        v /= 255;
+        return v <= 0.03928
+          ? v / 12.92
+          : Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+      return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+    }
+
+    // Function to calculate contrast ratio
+    function contrast(hex1, hex2) {
+      function hexToRgb(hex) {
+        let bigint = parseInt(hex.slice(1), 16);
+        let r = (bigint >> 16) & 255;
+        let g = (bigint >> 8) & 255;
+        let b = bigint & 255;
+        return [r, g, b];
+      }
+      let lum1 = luminance(...hexToRgb(hex1));
+      let lum2 = luminance(...hexToRgb(hex2));
+      let brightest = Math.max(lum1, lum2);
+      let darkest = Math.min(lum1, lum2);
+      return (brightest + 0.05) / (darkest + 0.05);
+    }
+
+    function update() {
+      let fg = document.getElementById("textColor").value;
+      let bg = document.getElementById("bgColor").value;
+      let ratio = contrast(fg, bg);
+      let percent = (ratio / 21) * 100; // max contrast ratio is 21:1
+
+      // Update circular progress bar
+      document.getElementById("progress").setAttribute("stroke-dasharray", percent + ",100");
+      document.getElementById("ratioText").textContent = ratio.toFixed(1) + ":1";
+
+      // Show result text
+      document.getElementById("result").textContent =
+        "Contrast Ratio: " + ratio.toFixed(2) + " ( " + Math.round(percent) + "% of max )";
+    }
+
+    // Initial update
+    update();
+
+    // Event listeners
+    document.getElementById("textColor").addEventListener("input", update);
+    document.getElementById("bgColor").addEventListener("input", update);
+
+      // Tumhare diye hue colors (example)
+
+      const darkColors = [
+        "#000000",
+        "#2F4F4F",
+        "#4B0082",
+        "#B8860B",
+        "#8B0000",
+        "#006400",
+        "#2E8B57",
+        "#C71585",
+        "#FE1000",
+        "#145A32",
+        "#E6F000",
+        "#2F3E12",
+        "#6B6B6B",
+        "#DAA520",
+        "#A52A2A",
+        "#4A4A4A",
+        "#800000",
+        "#004225",
+        "#3D2B56",
+        "#7F6000",
+        "#8B008B",
+        "#FFD700",
+        "#DC143C",
+      ];
+      const lightColors = [
+        "#ffffff",
+        "#f9f9f9",
+        "#f2f2f2",
+        "#e6e6e6",
+        "#dddddd",
+        "#cccccc",
+        "#bbbbbb",
+        "#aaaaaa",
+        "#FFFFFF",
+        "#FFFAF0",
+        "#FFFACD",
+        "#E6E6FA",
+        "#F0FFF0",
+        "#F0FFFF",
+        "#F5F5DC",
+        "#FFE4E1",
+        "#FFDAB9",
+        "#FAFAD2",
+        "#E0FFFF",
+        "#F5FFFA",
+        "#FFF0F5",
+        "#F8F8FF",
+        "#FFFFE0",
+        "#F0F8FF",
+      ]; // Other categories
+      const primaryColors = ["#FF0000", "#0000FF", "#FFFF00"];
+      const secondaryColors = ["#00FF00", "#FF7F00", "#8B00FF"];
+      const tertiaryColors = [
+        "#FF4500",
+        "#FFD700",
+        "#ADFF2F",
+        "#00CED1",
+        "#4169E1",
+        "#9932CC",
+      ];
+      const warmColors = ["#FF0000", "#FF4500", "#FFA500", "#FFD700"];
+      const coolColors = ["#0000FF", "#00CED1", "#008000", "#800080"];
+      const neutralColors = [
+        "#000000",
+        "#FFFFFF",
+        "#808080",
+        "#A9A9A9",
+        "#D3D3D3",
+        "#C0C0C0",
+      ];
+      const pastelColors = [
+        "#FFB6C1",
+        "#FFDAB9",
+        "#E6E6FA",
+        "#B0E0E6",
+        "#98FB98",
+        "#FFFACD",
+      ];
+      const earthColors = [
+        "#8B4513",
+        "#A0522D",
+        "#CD853F",
+        "#D2B48C",
+        "#556B2F",
+        "#6B8E23",
+      ];
+      const oceanColors = [
+        "#001F3F",
+        "#0074D9",
+        "#7FDBFF",
+        "#39CCCC",
+        "#3D9970",
+        "#2E8B57",
+      ];
+      const sunsetColors = [
+        "#FF4500",
+        "#FF6347",
+        "#FFD700",
+        "#FF69B4",
+        "#FF1493",
+        "#FF8C00",
+      ];
+      const floralColors = [
+        "#FFB6C1",
+        "#FF69B4",
+        "#DB7093",
+        "#C71585",
+        "#E6E6FA",
+        "#9370DB",
+      ];
+      const galaxyColors = [
+        "#0B0033",
+        "#1A1A40",
+        "#4B0082",
+        "#800080",
+        "#FF00FF",
+        "#FFD700",
+      ];
+      const autumnColors = [
+        "#8B0000",
+        "#A0522D",
+        "#D2691E",
+        "#FF8C00",
+        "#FFD700",
+        "#B8860B",
+      ];
+
+      // Render Palette (grid style)
+      function renderPalette(paletteId, colors) {
+        const palette = document.getElementById(paletteId);
+        palette.innerHTML = "";
+        const table = document.createElement("table");
+        table.style.borderCollapse = "collapse";
+        for (let i = 0; i < colors.length; i += 4) {
+          const row = document.createElement("tr");
+          for (let j = i; j < i + 4 && j < colors.length; j++) {
+            const cell = document.createElement("td");
+            cell.style.width = "40px";
+            cell.style.height = "40px";
+            cell.style.background = colors[j];
+            cell.style.border = "1px solid #ccc";
+            cell.title = colors[j];
+            row.appendChild(cell);
+          }
+          table.appendChild(row);
+        }
+        palette.appendChild(table);
+      } // Close all palettes
+      function closeAllPalettes() {
+        document
+          .querySelectorAll(".palette")
+          .forEach((p) => p.classList.add("d-none"));
+      } // Attach toggle logic
+      function attachToggle(btnId, paletteId, colors) {
+        document.getElementById(btnId).addEventListener("click", function () {
+          const palette = document.getElementById(paletteId);
+          const isHidden = palette.classList.contains("d-none");
+          closeAllPalettes();
+          if (isHidden) {
+            palette.classList.remove("d-none");
+            renderPalette(paletteId, colors);
+          }
+        });
+      }
+      // Register all buttons with their palettes
+      // method (ClassName , previewId, ObjectName)
+      attachToggle("darkBtn", "darkPalette", darkColors);
+      attachToggle("lightBtn", "lightPalette", lightColors);
+      attachToggle("primaryBtn", "primaryPalette", primaryColors);
+      attachToggle("secondaryBtn", "secondaryPalette", secondaryColors);
+      attachToggle("tertiaryBtn", "tertiaryPalette", tertiaryColors);
+      attachToggle("warmBtn", "warmPalette", warmColors);
+      attachToggle("coolBtn", "coolPalette", coolColors);
+      attachToggle("neutralBtn", "neutralPalette", neutralColors);
+      attachToggle("pastelBtn", "pastelPalette", pastelColors);
+      attachToggle("earthBtn", "earthPalette", earthColors);
+      attachToggle("oceanBtn", "oceanPalette", oceanColors);
+      attachToggle("sunsetBtn", "sunsetPalette", sunsetColors);
+      attachToggle("floralBtn", "floralPalette", floralColors);
+      attachToggle("galaxyBtn", "galaxyPalette", galaxyColors);
+      attachToggle("autumnBtn", "autumnPalette", autumnColors);
+      attachToggle("winterBtn", "winterPalette", winterColors);
+    </script>
   </body>
 </html>
