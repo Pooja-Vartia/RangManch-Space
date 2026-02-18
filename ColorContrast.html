@@ -20,20 +20,35 @@
     />
     <!-- Bootstrap JS Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
     <link rel="stylesheet" href="DashboardStyle.css" />
     <title>Play Using CloudColors Dashboard</title>
   </head>
   <body class="conatiner-fluid">
-    <h3 class="text-left text col-12 p-4 m-0" id="heading">
-      <i class="fa-notdog-duo fa-solid fa-palette" style="font-size: 50px"></i>
-      CloudColors Dashboard
-      <img
-        src="colored-pencils.png"
-        alt="loading"
-        class="img img-fluid w-30"
-        id="headingId"
-      />
-    </h3>
+ <h3 class="d-flex align-items-center justify-content-between col-12 p-4 m-0" id="heading">
+  <span>
+    <i class="fa-solid fa-palette"></i>
+    CloudColors Dashboard
+    <img
+      src="colored-pencils.png"
+      alt="loading"
+      class="img img-fluid w-30"
+      id="headingId"
+    />
+  </span>
+
+  <span class="d-flex" id="textActions">
+    <button type="button" class="btn me-2" id="deleteText" aria-label="Delete">
+      <i class="fa-solid fa-trash"></i> 
+    </button>
+    <button type="button" class="btn" id="shareText" aria-label="Share ScreenShot">
+      <i class="fa-solid fa-share-nodes"></i> 
+    </button>
+  </span>
+</h3>
 
    
     <div class="Middlebuttons d-flex overflow-auto mt-0">
@@ -41,7 +56,6 @@
         id="colorMenuCarousel"
         class="carousel slide col-lg-12 col-md-12 col-sm-12 col-xs-12 m-0"
         data-bs-ride="carousel"
-        style="background-color: white"
       >
         <div class="carousel-inner">
           <!-- Slide 1 -->
@@ -171,14 +185,17 @@
           type="button"
           data-bs-target="#colorMenuCarousel"
           data-bs-slide="next"
+          aria-label="Next slide"
         >
           <span class="carousel-control-next-icon"></span>
         </button>
       </div>
     </div>
 
+   
+
     <div class="row mt-0" id="BoxElements">
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 m-0" id="LeftPart">
+      <div class="col-lg-2 col-md-2 col-sm-12 col-12 order-lg-1 order-md-1 order-2 m-0"  id="LeftPart">
         <!-- background color layer -->
         <div class="p-1">
           <label for="bgColor">
@@ -233,7 +250,6 @@
           type="button"
           class="btn btn-outline-dark text"
           id="applyGradient"
-          style="margin: 0% auto"
         >
           <h6 class="text text-center">Apply Gradient</h6>
         </button>
@@ -246,7 +262,7 @@
           <div class="palette" id="paletteContainer"></div>
         </div>
       </div>
-      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 m-0" id="MiddlePart">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-12 order-lg-2 order-md-2 order-1 m-0" id="MiddlePart">
         <h3 class="text mt-5 center">CONTRAST CHEAKER</h3>
         <textarea
           class="form-control plain-textarea mt-2"
@@ -254,11 +270,11 @@
           placeholder="Type your paragraph here..."
         ></textarea>
       </div>
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 rightPart">
+      <div class="col-lg-2 col-md-2 col-sm-12 col-12 order-lg-3 order-md-2 order-3 m-0 rightPart">
         <!-- Surprise Me -->
         <div>
           <h6 class="text-primary fw-bold">SURPRISE ME</h6>
-          <button type="button" class="btn custom-btn" id="randomize">
+          <button type="button" class="btn custom-btn" id="randomize" aria-label="Randomize">
             <i class="fa-solid fa-dice"></i>
           </button>
         </div>
@@ -266,7 +282,7 @@
         <!-- Save Palette -->
         <div>
           <h6 class="text-primary fw-bold">SAVE PALETTE</h6>
-          <button type="button" class="btn custom-btn " id="savePalette">
+          <button type="button" class="btn custom-btn " id="savePalette" aria-label="Save palette">
             <i class="fa-solid fa-cloud-arrow-down"></i>
           </button>
         </div>
@@ -290,7 +306,7 @@
             <text x="18" y="20.35" id="ratioText" class="percentage">0:1</text>
           </svg>
 
-          <p class="text text-center" style="color: rgba(61, 51, 90, 0.849)">
+          <p class="text text-center " id="contrast" >
             BEST COLOR CONTRAST
           </p>
           <p id="result"></p>
@@ -299,6 +315,9 @@
     </div>
 
     <script>
+
+
+
       const bgPicker = document.getElementById("bgColor");
       const textPicker = document.getElementById("textColor");
       const gradStart = document.getElementById("gradStart");
@@ -311,16 +330,28 @@
       textPicker.addEventListener("input", updateColors);
 
       function updateColors() {
+     
         document.body.style.background = bgPicker.value;
         document.body.style.color = textPicker.value;
         showCSS();
+
+        // Snapshot ke liye textarea par bhi apply karo
+      ;
       }
 
-      // Apply gradient
-      document.getElementById("applyGradient").addEventListener("click", () => {
-        document.body.style.background = `linear-gradient(45deg, ${gradStart.value}, ${gradEnd.value})`;
-        showCSS();
-      });
+     document.getElementById("applyGradient").addEventListener("click", () => {
+  const gradientValue = `linear-gradient(45deg, ${gradStart.value}, ${gradEnd.value})`;
+
+  // Live view ke liye body par
+  document.body.style.background = gradientValue;
+  showCSS();
+
+  // Snapshot ke liye textarea par bhi
+  textarea.style.background = gradientValue;
+});
+
+         
+     
 
       // Save palette
       document.getElementById("savePalette").addEventListener("click", () => {
@@ -404,7 +435,48 @@
     document.getElementById("textColor").addEventListener("input", update);
     document.getElementById("bgColor").addEventListener("input", update);
 
-      // Tumhare diye hue colors (example)
+
+ // DELETE AND SHARE SNAPSHOT BUTTONS
+   const textarea = document.querySelector(".plain-textarea");
+const deleteBtn = document.getElementById("deleteText");
+const shareBtn = document.getElementById("shareText");
+
+// DELETE: clear text + reset styles
+deleteBtn.addEventListener("click", () => {
+  textarea.value = "";
+  textarea.style.backgroundColor = "";
+  textarea.style.color = "";
+});
+
+// SHARE SNAPSHOT: capture textarea as image
+shareBtn.addEventListener("click", () => {
+ textarea.style.backgroundColor = bgPicker.value;
+  textarea.style.color = textPicker.value;
+  html2canvas(textarea, {
+        backgroundColor: textarea.style.backgroundColor || "#ffffff", 
+         }).then(canvas => {
+    const dataURL = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = dataURL;
+    link.download = "textarea_snapshot.png";
+    link.click();
+
+    if (navigator.canShare && navigator.canShare({ files: [] })) {
+      canvas.toBlob(blob => {
+        const file = new File([blob], "snapshot.png", { type: "image/png" });
+        navigator.share({
+          files: [file],
+          title: "Textarea Snapshot",
+          text: "Here is my styled text snapshot!"
+        });
+      });
+    }
+  });
+});
+
+
+
+
 
       const darkColors = [
         "#000000",
@@ -456,7 +528,7 @@
         "#F8F8FF",
         "#FFFFE0",
         "#F0F8FF",
-      ]; // Other categories
+      ];
       const primaryColors = ["#FF0000", "#0000FF", "#FFFF00"];
       const secondaryColors = ["#00FF00", "#FF7F00", "#8B00FF"];
       const tertiaryColors = [
@@ -589,6 +661,9 @@
       attachToggle("galaxyBtn", "galaxyPalette", galaxyColors);
       attachToggle("autumnBtn", "autumnPalette", autumnColors);
       attachToggle("winterBtn", "winterPalette", winterColors);
+
+
+      
     </script>
   </body>
 </html>

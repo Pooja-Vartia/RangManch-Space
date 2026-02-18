@@ -9,6 +9,9 @@
   /* box-shadow: 0 0 10px gainsboro; */
   
 }       
+#heading i {
+  font-size: 50px;
+}
 .fa-notdog-duo{
   color: rgb(8, 237, 50);
 }
@@ -48,6 +51,7 @@
 }
 .Middlebuttons button:hover{
  height: 5vh;
+ color: rgb(102, 90, 207);
 }
 input{
   outline: none;
@@ -79,7 +83,7 @@ input[type="color"] {
 .custom-btn {
   /* padding: 15px 40px; */
   border: none;
-  background-color: transparent; /* ya apni pasand ka color */
+  background-color: transparent; 
   cursor: pointer;
 }
 
@@ -152,6 +156,15 @@ input[type="color"] {
 
 }
 .dropdown-menu {
-  position: fixed !important;  /* floats relative to viewport */
-  z-index: 5000 !important;    /* ensures it stays above rows */
+  position: fixed !important;  
+    z-index: 5000 !important;
+}
+#colorMenuCarousel{
+  background-color: white;
+}
+#applyGradient{
+  margin: 0% auto;
+}
+#contrast p{
+background-color: rgba(61, 51, 90, 0.849);
 }
