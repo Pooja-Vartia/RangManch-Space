@@ -645,6 +645,12 @@ else{
             cell.style.background = colors[j];
             cell.style.border = "1px solid #ccc";
             cell.title = colors[j];
+
+            //  click handler 
+            cell.addEventListener("click", () => { 
+              document.body.style.background = colors[j]; 
+             textarea.style.background = colors[j];
+             });
             row.appendChild(cell);
           }
           table.appendChild(row);
