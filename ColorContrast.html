@@ -343,11 +343,13 @@
   const gradientValue = `linear-gradient(45deg, ${gradStart.value}, ${gradEnd.value})`;
 
   // Live view ke liye body par
+  document.body.style.backgroundImage = gradientValue;
   document.body.style.background = gradientValue;
   showCSS();
 
   // Snapshot ke liye textarea par bhi
   textarea.style.background = gradientValue;
+  textarea.style.backgroundColor = gradStart.value;
 });
 
          
@@ -450,17 +452,39 @@ deleteBtn.addEventListener("click", () => {
 
 // SHARE SNAPSHOT: capture textarea as image
 shareBtn.addEventListener("click", () => {
- textarea.style.backgroundColor = bgPicker.value;
+  // a temporary div to mirroe textarea content
+const tempDiv = document.createElement("div");
+// copy text from  textarea
+tempDiv.textContent = textarea.value;
+
+if(textarea.style.backgroundImage){
+  tempDiv.style.backgroundImage = textarea.style.backgroundImage;
+  tempDiv.style.backgroundColor = textarea.style.backgroundColor;
+}
+else{
+  tempDiv.style.backgroundColor = bgPicker.value || "#ffffff";
+}
+
   textarea.style.color = textPicker.value;
-  html2canvas(textarea, {
-        backgroundColor: textarea.style.backgroundColor || "#ffffff", 
+  // tempDiv.style.padding = "2px";
+  // preserve line breaks
+  tempDiv.style.whiteSpace = "pre-wrap"; 
+  tempDiv.style.fontFamily = window.getComputedStyle(textarea).fontFamily;
+  tempDiv.style.fontSize =  window.getComputedStyle(textarea).fontSize;
+  
+  // temporary div to DOM 
+  document.body.appendChild(tempDiv);
+
+  html2canvas(tempDiv, {
          }).then(canvas => {
+          // convert canvas to image and download
     const dataURL = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = dataURL;
     link.download = "textarea_snapshot.png";
     link.click();
 
+    
     if (navigator.canShare && navigator.canShare({ files: [] })) {
       canvas.toBlob(blob => {
         const file = new File([blob], "snapshot.png", { type: "image/png" });
