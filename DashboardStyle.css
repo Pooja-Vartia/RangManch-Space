@@ -147,6 +147,7 @@ input[type="color"] {
   box-shadow: none !important;
   color: inherit; 
   height: 60vh;
+  white-space: pre-wrap;
 }
 
 .plain-textarea:focus {
@@ -167,4 +168,8 @@ input[type="color"] {
 }
 #contrast p{
 background-color: rgba(61, 51, 90, 0.849);
+}
+#textActions i{
+  font-size: 25px;
+  color: white;
 }
