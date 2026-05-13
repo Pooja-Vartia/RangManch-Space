@@ -173,3 +173,65 @@ background-color: rgba(61, 51, 90, 0.849);
   font-size: 25px;
   color: white;
 }
+.palette table {
+  table-layout: fixed;
+}
+
+.palette table td {
+  width: 40px !important;
+  height: 40px !important;
+  aspect-ratio: 1 / 1; /* ensures square */
+  display: inline-block; /* prevents stretching */
+}
+.blind-sidebar {
+  position: fixed;
+  top: 80px;
+  right: -250px;
+  width: 250px;
+  height: calc(100% - 80px);
+  background: #f8f9fa;
+  border-left: 2px solid #ddd;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  z-index: 1050;
+}
+.blind-sidebar.active { right: 0; }
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+.list-group-item {
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+/* Right-side Preview Window */
+.phase-preview {
+  position: fixed;
+  top: 20%;
+  right: -90%; /* hidden by default */
+  width: 80%;
+  height: 80%;
+  margin-right: 0%;
+  background: #fff;
+  border: 2px solid #ddd;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+  transition: right 0.4s ease;
+  z-index: 1100;
+  overflow-y: auto;
+}
+.phase-preview.active { right: 10%; }
+
+#phaseText {
+  width: 95%;
+  margin: auto;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 500;
+}
