@@ -167,7 +167,7 @@ let worstRatio = Math.min(ratioStart, ratioEnd);
 
 
  // DELETE AND SHARE SNAPSHOT BUTTONS
-   const textarea = document.querySelector(".plain-textarea");
+   const textarea = document.querySelector("editor");
 const deleteBtn = document.getElementById("deleteText");
 const shareBtn = document.getElementById("shareText");
 
@@ -567,36 +567,6 @@ const winterColors = [
       attachToggle("rainyBtn", "rainyPalette", rainyColors);
       attachToggle("winterBtn", "winterPalette", winterColors);
 
-// winterColors
-      
-  //   document.addEventListener("DOMContentLoaded", function () {
-  // const bgPicker = document.getElementById("bgColor");
-  // const textPicker = document.getElementById("textColor");
-  // const previews = document.querySelectorAll(".blind-preview");
-
-  // function updateBlindPreviews() {
-  //   previews.forEach(box => {
-  //     box.style.backgroundColor = bgPicker.value;
-  //     box.style.color = textPicker.value;
-  //   });
-
-    // Filters for simulation
-  //   document.getElementById("vision-deuteranomaly").style.filter = "contrast(1.2) saturate(0.8)";
-  //   document.getElementById("vision-protanomaly").style.filter = "contrast(1.1) saturate(0.7)";
-  //   document.getElementById("vision-deuteranopia").style.filter = "grayscale(0.5) sepia(0.6)";
-  //   document.getElementById("vision-protanopia").style.filter = "grayscale(0.6) sepia(0.7)";
-  //   document.getElementById("vision-tritanomaly").style.filter = "hue-rotate(90deg) saturate(0.7)";
-  //   document.getElementById("vision-tritanopia").style.filter = "hue-rotate(120deg) saturate(0.6)";
-  //   document.getElementById("vision-mono").style.filter = "grayscale(100%)";
-  // }
-
-  // Run once
-  // updateBlindPreviews();
-
-  // Update whenever user changes colors
-//   bgPicker.addEventListener("input", updateBlindPreviews);
-//   textPicker.addEventListener("input", updateBlindPreviews);
-// });
 document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("toggleBlindness");
   const closeBtn = document.getElementById("closeBlindness");
@@ -647,4 +617,110 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Close preview
   closePhaseBtn.addEventListener("click", () => phaseWindow.classList.remove("active"));
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const editor = document.getElementById("editor");
+
+  // DELETE
+  document.getElementById("deleteText").addEventListener("click", () => {
+    editor.innerHTML = "";   // clear contenteditable div
+    editor.removeAttribute("style"); // reset styles
+  });
+
+  // SHARE SNAPSHOT (keep your html2canvas logic, but use editor.innerHTML instead of textarea.value)
+
+  // Bold
+  document.getElementById("btnBold").addEventListener("click", () => {
+    document.execCommand("bold");
+  });
+
+  // Italic
+  document.getElementById("btnItalic").addEventListener("click", () => {
+    document.execCommand("italic");
+  });
+
+  // Underline
+  document.getElementById("btnUnderline").addEventListener("click", () => {
+    document.execCommand("underline");
+  });
+
+  // Caps toggle (applies to whole div)
+  document.getElementById("btnCaps").addEventListener("click", () => {
+    editor.style.textTransform =
+      editor.style.textTransform === "uppercase" ? "none" : "uppercase";
+  });
+
+  // Undo / Redo
+  document.getElementById("btnUndo").addEventListener("click", () => {
+    document.execCommand("undo");
+  });
+  document.getElementById("btnRedo").addEventListener("click", () => {
+    document.execCommand("redo");
+  });
+  // OBJECT FOR fontFamilies
+const fontFamilies = [
+  "Arial", "Verdana", "Tahoma", "Trebuchet MS", "Times New Roman",
+  "Georgia", "Garamond", "Courier New", "Lucida Console", "Impact",
+  "Comic Sans MS", "Palatino Linotype", "Book Antiqua", "Candara",
+  "Segoe UI", "Helvetica", "Franklin Gothic Medium", "Century Gothic",
+  "Gill Sans", "Optima", "Monaco", "Brush Script MT", "Futura",
+  "Rockwell", "Baskerville", "Copperplate", "Didot"
+];
+
+  const fontSelect = document.getElementById("fontSelect");
+fontFamilies.forEach(font => {
+  const option = document.createElement("option");
+  option.value = font;
+  option.textContent = font;
+  option.style.fontFamily = font; // preview in dropdown
+  fontSelect.appendChild(option);
+});
+
+  // Font Family
+  document.getElementById("fontSelect").addEventListener("change", (e) => {
+    document.execCommand("fontName", false, e.target.value);
+  });
+
+const fontSizes = [
+  "8", "10", "12", "14", "16", "18", "20", "22", "24",
+  "28", "32", "36", "40", "44", "48", "52", "60", "72",
+  "84", "96", "108", "120", "144", "160", "180", "200",
+  "220", "240", "260", "280"
+];
+
+const fontSizeSelect = document.getElementById("fontSizeSelect");
+fontSizes.forEach(size => {
+  const option = document.createElement("option");
+  option.value = size;
+  option.textContent = size + "px";   // just label
+  fontSizeSelect.appendChild(option);
+});
+
+fontSizeSelect.addEventListener("change", (e) => {
+  document.execCommand("fontSize", false, "7"); // apply largest
+  const selection = window.getSelection();
+  if (selection.rangeCount > 0) {
+    const range = selection.getRangeAt(0);
+    const selectedNode = range.startContainer.parentElement;
+    if (selectedNode) {
+      selectedNode.style.fontSize = e.target.value + "px";
+    }
+  }
+});
+
+
+
+  
+  // Font Size (execCommand only supports 1–7)
+  document.getElementById("fontSizeSelect").addEventListener("change", (e) => {
+    document.execCommand("fontSize", false, e.target.value);
+  });
+
+  // Alignment
+  document.getElementById("alignSelect").addEventListener("change", (e) => {
+    if (e.target.value === "left") document.execCommand("justifyLeft");
+    if (e.target.value === "center") document.execCommand("justifyCenter");
+    if (e.target.value === "right") document.execCommand("justifyRight");
+    if (e.target.value === "justify") document.execCommand("justifyFull");
+  });
 });

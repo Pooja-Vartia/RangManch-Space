@@ -7,8 +7,8 @@
   font-weight: bold;
   background-color: rgba(74, 74, 194, 0.789);
   /* box-shadow: 0 0 10px gainsboro; */
-  
-}       
+}
+       
 #heading i {
   font-size: 50px;
 }
@@ -156,6 +156,10 @@ input[type="color"] {
   color: inherit; 
 
 }
+
+ #editor::-webkit-scrollbar {
+    display: none;
+  }
 .dropdown-menu {
   position: fixed !important;  
     z-index: 5000 !important;
@@ -168,11 +172,84 @@ input[type="color"] {
 }
 #contrast p{
 background-color: rgba(61, 51, 90, 0.849);
+
 }
 #textActions i{
-  font-size: 25px;
+  font-size: 15px;
+  color: white;
+
+}
+
+#fontSelect {
+ background-color: transparent;
+  border: none;
+  color: white;
+  padding: 1.5rem;
+  font-size: 15px;
+  width: auto;          /* shrink to content */
+  max-width: 90px;     /* cap width so it doesn’t expand too much */
+  padding-right: 1.5rem; /* fix gap between text and arrow */
+}
+#fontSelect option {
+  background-color: rgba(74, 74, 194, 0.789); /* dropdown background */
+  color: white;            /* dropdown text color */
+  padding: 0.5rem;
+}
+
+/* Optional: hover effect for options */
+#fontSelect option:hover {
+  background-color: black;
   color: white;
 }
+
+#fontSizeSelect{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 15px;
+  
+}
+
+#fontSizeSelect option {
+  background-color: white; /* dropdown background */
+  color: black;            /* dropdown text color */
+  padding: 0.5rem;
+}
+
+/* Optional: hover effect for options */
+#fontSizeSelect option:hover {
+  background-color: black;
+  color: white;
+}
+
+
+#alignSelect {
+    background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 15px;
+   width: auto;          /* shrink to content */
+  max-width: 90px;     /* cap width so it doesn’t expand too much */
+  padding-right: 1.5rem; /* fix gap between text and arrow */
+}
+#alignSelect option {
+  background-color: white; /* dropdown background */
+  color: black;            /* dropdown text color */
+  padding: 0.5rem;
+}
+
+/* Optional: hover effect for options */
+#alignSelect option:hover {
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
+
+
 .palette table {
   table-layout: fixed;
 }
@@ -185,9 +262,9 @@ background-color: rgba(61, 51, 90, 0.849);
 }
 .blind-sidebar {
   position: fixed;
-  top: 80px;
+  /* top: 80px; */
   right: -250px;
-  width: 250px;
+  width: 215px;
   height: calc(100% - 80px);
   background: #f8f9fa;
   border-left: 2px solid #ddd;
@@ -234,4 +311,26 @@ background-color: rgba(61, 51, 90, 0.849);
   padding: 15px;
   font-size: 1rem;
   font-weight: 500;
+}
+/* Resize handles */
+.phase-preview .resize-handle {
+  position: absolute;
+  background: transparent;
+  z-index: 1200;
+}
+
+.phase-preview .resize-handle.n { top: 0; left: 0; right: 0; height: 8px; cursor: ns-resize; }
+.phase-preview .resize-handle.s { bottom: 0; left: 0; right: 0; height: 8px; cursor: ns-resize; }
+.phase-preview .resize-handle.e { top: 0; right: 0; bottom: 0; width: 8px; cursor: ew-resize; }
+.phase-preview .resize-handle.w { top: 0; left: 0; bottom: 0; width: 8px; cursor: ew-resize; }
+
+#result {
+  border: 2px solid transparent;
+  box-shadow: 0 0 20px rgb(177, 212, 223);
+  border-radius: 5px;
+}
+#magicalDiec {
+    border: 2px solid transparent;
+  box-shadow: 0 0 20px rgb(177, 212, 223);
+  border-radius: 5px;
 }
