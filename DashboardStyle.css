@@ -305,24 +305,24 @@ background-color: rgba(61, 51, 90, 0.849);
 }
 .phase-preview.active { right: 10%; }
 
-#phaseText {
-  width: 95%;
-  margin: auto;
-  padding: 15px;
-  font-size: 1rem;
-  font-weight: 500;
-}
-/* Resize handles */
-.phase-preview .resize-handle {
-  position: absolute;
-  background: transparent;
-  z-index: 1200;
+.phase-preview {
+  position: fixed;
+  background: #fff;
+  resize: none; /* disable default */
 }
 
-.phase-preview .resize-handle.n { top: 0; left: 0; right: 0; height: 8px; cursor: ns-resize; }
-.phase-preview .resize-handle.s { bottom: 0; left: 0; right: 0; height: 8px; cursor: ns-resize; }
-.phase-preview .resize-handle.e { top: 0; right: 0; bottom: 0; width: 8px; cursor: ew-resize; }
-.phase-preview .resize-handle.w { top: 0; left: 0; bottom: 0; width: 8px; cursor: ew-resize; }
+.resize-handle {
+  position: absolute;
+  background: #333;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+.resize-handle.n { top: 0; left: 50%; width: 10px; height: 5px; cursor: n-resize; }
+.resize-handle.s { bottom: 0; left: 50%; width: 10px; height: 5px; cursor: s-resize; }
+.resize-handle.e { right: 0; top: 50%; width: 5px; height: 10px; cursor: e-resize; }
+.resize-handle.w { left: 0; top: 50%; width: 5px; height: 10px; cursor: w-resize; }
+
 
 #result {
   border: 2px solid transparent;

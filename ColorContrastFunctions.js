@@ -27,12 +27,48 @@ const textPickerMobile = document.getElementById("textColorMobile");
 const gradStartMobile = document.getElementById("gradStartMobile");
 const gradEndMobile = document.getElementById("gradEndMobile");
 
+
+
+
 // Common update function
+let isGradientActive = false; // global flag
+
 function updateColors(bg, text) {
-  document.body.style.background = bg;
+  const editor = document.getElementById("editor");
+  const phaseText = document.getElementById("phaseText");
+
+  if (isGradientActive) {
+    // Gradient case
+    if (editor) {
+      editor.style.backgroundImage = document.body.style.backgroundImage;
+      editor.style.backgroundColor = "";
+    }
+    if (phaseText) {
+      phaseText.style.backgroundImage = document.body.style.backgroundImage;
+      phaseText.style.backgroundColor = "";
+    }
+  } else {
+    // Plain color case
+    document.body.style.backgroundImage = "";
+    document.body.style.backgroundColor = bg;
+    if (editor) {
+      editor.style.backgroundImage = "";
+      editor.style.backgroundColor = bg;
+    }
+    if (phaseText) {
+      phaseText.style.backgroundImage = "";
+      phaseText.style.backgroundColor = bg;
+    }
+  }
+
   document.body.style.color = text;
+  if (editor) editor.style.color = text;
+  if (phaseText) phaseText.style.color = text;
+
   showCSS();
 }
+
+
 
 // Desktop listeners
 bgPicker.addEventListener("input", () => updateColors(bgPicker.value, textPicker.value));
@@ -46,6 +82,21 @@ textPickerMobile.addEventListener("input", () => updateColors(bgPickerMobile.val
 document.getElementById("applyGradient").addEventListener("click", () => {
   const gradientValue = `linear-gradient(45deg, ${gradStart.value}, ${gradEnd.value})`;
   document.body.style.backgroundImage = gradientValue;
+
+  // ✅ Also sync phaseText
+  const phaseText = document.getElementById("phaseText");
+  if (phaseText) {
+    phaseText.style.backgroundImage = gradientValue;
+    phaseText.style.backgroundColor = "";
+  }
+
+  // ✅ Sync editor
+  const editor = document.getElementById("editor");
+  if (editor) {
+    editor.style.backgroundImage = gradientValue;
+    editor.style.backgroundColor = "";
+  }
+
   showCSS();
 });
 
@@ -61,6 +112,23 @@ function randomizeColors(bgInput, textInput) {
   bgInput.value = randomColor();
   textInput.value = randomColor();
   updateColors(bgInput.value, textInput.value);
+
+// ✅ Force editor sync
+  const editor = document.getElementById("editor");
+  if (editor) {
+    editor.style.backgroundImage = "";
+    editor.style.backgroundColor = bgInput.value;
+    editor.style.color = textInput.value;
+  }
+
+  // ✅ Force phaseText sync
+  const phaseText = document.getElementById("phaseText");
+  if (phaseText) {
+    phaseText.style.backgroundImage = "";
+    phaseText.style.backgroundColor = bgInput.value;
+    phaseText.style.color = textInput.value;
+  }
+
 }
 
 document.getElementById("randomize").addEventListener("click", () => randomizeColors(bgPicker, textPicker));
@@ -167,7 +235,7 @@ let worstRatio = Math.min(ratioStart, ratioEnd);
 
 
  // DELETE AND SHARE SNAPSHOT BUTTONS
-   const textarea = document.querySelector("editor");
+   const textarea = document.getElementById("editor");
 const deleteBtn = document.getElementById("deleteText");
 const shareBtn = document.getElementById("shareText");
 
@@ -180,51 +248,34 @@ deleteBtn.addEventListener("click", () => {
 
 // SHARE SNAPSHOT: capture textarea as image
 shareBtn.addEventListener("click", () => {
-  // a temporary div to mirroe textarea content
-const tempDiv = document.createElement("div");
-// copy text from  textarea
-tempDiv.textContent = textarea.value;
+  const editor = document.getElementById("editor");
 
-if (textarea.style.backgroundImage) {
-  tempDiv.style.backgroundImage = textarea.style.backgroundImage;
-  tempDiv.style.backgroundColor = textarea.style.backgroundColor;
-} else {
-  tempDiv.style.backgroundColor = textarea.style.backgroundColor || bgPicker.value || "#ffffff";
-}
-
-
-  textarea.style.color = textPicker.value;
-  // tempDiv.style.padding = "2px";
-  // preserve line breaks
-  tempDiv.style.whiteSpace = "pre-wrap"; 
-  tempDiv.style.fontFamily = window.getComputedStyle(textarea).fontFamily;
-  tempDiv.style.fontSize =  window.getComputedStyle(textarea).fontSize;
-  
-  // temporary div to DOM 
-  document.body.appendChild(tempDiv);
-
-  html2canvas(tempDiv, {
-         }).then(canvas => {
-          // convert canvas to image and download
+  html2canvas(editor, {
+    backgroundColor: editor.style.backgroundColor || "#ffffff",
+    useCORS: true
+  }).then(canvas => {
     const dataURL = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = dataURL;
-    link.download = "textarea_snapshot.png";
+    link.download = "editor_snapshot.png";
     link.click();
 
-    
+    // Optional: share via navigator.share
     if (navigator.canShare && navigator.canShare({ files: [] })) {
       canvas.toBlob(blob => {
-        const file = new File([blob], "snapshot.png", { type: "image/png" });
+        const file = new File([blob], "editor_snapshot.png", { type: "image/png" });
         navigator.share({
           files: [file],
-          title: "Textarea Snapshot",
-          text: "Here is my styled text snapshot!"
+          title: "Editor Snapshot",
+          text: "Here is my editor-only snapshot!"
         });
       });
     }
   });
 });
+
+
+
 
       const darkColors = [
         "#000000",
@@ -508,21 +559,36 @@ const winterColors = [
             cell.title = colors[j];
 
             //  click handler 
-            cell.addEventListener("click", () => { 
-  document.body.style.background = colors[j]; 
-  const textarea = document.getElementById("myTextarea"); 
-  if (textarea) {
-    textarea.style.background = colors[j];
+cell.addEventListener("click", () => { 
+  // Body update
+  document.body.style.backgroundImage = "";   // clear gradient
+  document.body.style.backgroundColor = colors[j]; 
+
+  // ✅ Editor update
+  const editor = document.getElementById("editor"); 
+  if (editor) {
+    editor.style.backgroundImage = "";        // clear gradient
+    editor.style.backgroundColor = colors[j]; // apply plain color
   }
 
+  // ✅ PhaseText update
+  const phaseText = document.getElementById("phaseText");
+  if (phaseText) {
+    phaseText.style.backgroundImage = "";     // clear gradient
+    phaseText.style.backgroundColor = colors[j];
+  }
+
+  // Sync picker
   const bgPicker = document.getElementById("bgColor");
   if (bgPicker) {
     bgPicker.value = colors[j];
   }
 
-  // call updateColors to recalc contrast ratio + update SVG
-  updateColors();
+  // Contrast ratio update
+  update();
 });
+
+
             row.appendChild(cell);
           }
           table.appendChild(row);
@@ -579,8 +645,74 @@ document.addEventListener("DOMContentLoaded", function () {
   const phaseTitle = document.getElementById("phaseTitle");
   const phaseText = document.getElementById("phaseText");
 
+  let isDragging = false, dragOffsetX = 0, dragOffsetY = 0;
+
+phaseWindow.addEventListener("mousedown", (e) => {
+  if (e.target.classList.contains("resize-handle")) return; // skip if resizing
+  isDragging = true;
+  dragOffsetX = e.clientX - phaseWindow.offsetLeft;
+  dragOffsetY = e.clientY - phaseWindow.offsetTop;
+  document.body.style.userSelect = "none";
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    phaseWindow.style.left = e.clientX - dragOffsetX + "px";
+    phaseWindow.style.top = e.clientY - dragOffsetY + "px";
+    phaseWindow.style.right = "auto"; // override right positioning
+  }
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+  document.body.style.userSelect = "";
+});
+
+["n","s","e","w"].forEach(dir => {
+  const handle = document.createElement("div");
+  handle.className = "resize-handle " + dir;
+  phaseWindow.appendChild(handle);
+
+  handle.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const startWidth = phaseWindow.offsetWidth;
+    const startHeight = phaseWindow.offsetHeight;
+    const startLeft = phaseWindow.offsetLeft;
+    const startTop = phaseWindow.offsetTop;
+
+    function onMouseMove(ev) {
+      if (dir === "e") phaseWindow.style.width = startWidth + (ev.clientX - startX) + "px";
+      if (dir === "w") {
+        phaseWindow.style.width = startWidth - (ev.clientX - startX) + "px";
+        phaseWindow.style.left = startLeft + (ev.clientX - startX) + "px";
+      }
+      if (dir === "s") phaseWindow.style.height = startHeight + (ev.clientY - startY) + "px";
+      if (dir === "n") {
+        phaseWindow.style.height = startHeight - (ev.clientY - startY) + "px";
+        phaseWindow.style.top = startTop + (ev.clientY - startY) + "px";
+      }
+    }
+
+    function onMouseUp() {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    }
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+});
+
+
+
   // Sidebar toggle
-  toggleBtn.addEventListener("click", () => sidebar.classList.add("active"));
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.add("active");
+  phaseWindow.classList.add("active");   // preview window bhi show ho
+  phaseWindow.style.right = "10%";       // reposition visible
+});
   closeBtn.addEventListener("click", () => sidebar.classList.remove("active"));
 
   // Update sidebar previews
@@ -616,7 +748,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Close preview
-  closePhaseBtn.addEventListener("click", () => phaseWindow.classList.remove("active"));
+closePhaseBtn.addEventListener("click", () => {
+  phaseWindow.style.left = "";
+  phaseWindow.style.top = "";
+  phaseWindow.style.width = "80%";
+  phaseWindow.style.height = "80%";
+  phaseWindow.style.right = "-90%"; // back to hidden
+  phaseWindow.classList.remove("active");
+});
 });
 document.addEventListener("DOMContentLoaded", () => {
   const editor = document.getElementById("editor");
@@ -697,14 +836,12 @@ fontSizes.forEach(size => {
 });
 
 fontSizeSelect.addEventListener("change", (e) => {
-  document.execCommand("fontSize", false, "7"); // apply largest
   const selection = window.getSelection();
   if (selection.rangeCount > 0) {
     const range = selection.getRangeAt(0);
-    const selectedNode = range.startContainer.parentElement;
-    if (selectedNode) {
-      selectedNode.style.fontSize = e.target.value + "px";
-    }
+    const span = document.createElement("span");
+    span.style.fontSize = e.target.value + "px";
+    range.surroundContents(span);
   }
 });
 
