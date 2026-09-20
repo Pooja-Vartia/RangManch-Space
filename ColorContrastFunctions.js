@@ -28,8 +28,6 @@ const gradStartMobile = document.getElementById("gradStartMobile");
 const gradEndMobile = document.getElementById("gradEndMobile");
 
 
-
-
 // Common update function
 let isGradientActive = false; // global flag
 
@@ -83,7 +81,7 @@ document.getElementById("applyGradient").addEventListener("click", () => {
   const gradientValue = `linear-gradient(45deg, ${gradStart.value}, ${gradEnd.value})`;
   document.body.style.backgroundImage = gradientValue;
 
-  // ✅ Also sync phaseText
+  // ✅  sync phaseText
   const phaseText = document.getElementById("phaseText");
   if (phaseText) {
     phaseText.style.backgroundImage = gradientValue;
@@ -203,9 +201,6 @@ let ratioStart = contrast(textPicker.value, gradStart.value);
 let ratioEnd = contrast(textPicker.value, gradEnd.value);
 let worstRatio = Math.min(ratioStart, ratioEnd);
 
-
-
-
     function update() {
       
       let fg = document.getElementById("textColor").value;
@@ -275,8 +270,7 @@ shareBtn.addEventListener("click", () => {
 });
 
 
-
-
+// dark colors options
       const darkColors = [
         "#000000",
         "#2F4F4F",
@@ -302,6 +296,7 @@ shareBtn.addEventListener("click", () => {
         "#FFD700",
         "#DC143C",
       ];
+// light colors options
       const lightColors = [
         "#ffffff",
         "#f9f9f9",
@@ -328,8 +323,15 @@ shareBtn.addEventListener("click", () => {
         "#FFFFE0",
         "#F0F8FF",
       ];
-      const primaryColors = ["#FF0000", "#0000FF", "#FFFF00"];
-      const secondaryColors = ["#00FF00", "#FF7F00", "#8B00FF"];
+// primary Colors  options
+      const primaryColors = [
+        "#FF0000", "#0000FF", "#FFFF00"
+      ];
+// secondary Colors optons
+      const secondaryColors = [
+        "#00FF00", "#FF7F00", "#8B00FF"
+      ];
+// tertiary Colors options
       const tertiaryColors = [
         "#FF4500",
         "#FFD700",
@@ -338,7 +340,11 @@ shareBtn.addEventListener("click", () => {
         "#4169E1",
         "#9932CC",
       ];
-      const warmColors = ["#FF0000", "#FF4500", "#FFA500", "#FFD700"];
+ // warm Colors options
+      const warmColors = [
+        "#FF0000", "#FF4500", "#FFA500", "#FFD700"
+      ];
+ // cool Colors options    
       const coolColors = 
       [
       "#0000FF",  /* Blue */
@@ -351,7 +357,8 @@ shareBtn.addEventListener("click", () => {
 "#4682B4",  /* Steel Blue */
 "#5F9EA0",  /* Cadet Blue */
 "#9370DB"   /* Medium Purple */
-    ];
+      ];
+// neutral Colors  options
       const neutralColors = [
         "#FFFFFF",  /* White */
 "#000000",  /* Black */
@@ -370,6 +377,7 @@ shareBtn.addEventListener("click", () => {
 "#2F4F4F"   /* Dark Slate Gray */
 
       ];
+// pastel Colors options
       const pastelColors = [
        "#AEC6CF", "#FFB347", "#77DD77", "#F49AC2", "#CFCFC4",
 "#B39EB5", "#FF6961", "#FFD1DC", "#CB99C9", "#FDFD96",
@@ -380,6 +388,7 @@ shareBtn.addEventListener("click", () => {
 "#98FB98", "#FFEFD5", "#FFDAB9"
 
       ];
+// earth Colors options
       const earthColors = [
        "#8B4513",  /* Saddle Brown */
 "#A0522D",  /* Sienna */
@@ -398,6 +407,7 @@ shareBtn.addEventListener("click", () => {
 "#8F9779"   /* Artichoke Green */
 
       ];
+// ocean Colors options
       const oceanColors = [
         "#00CED1",  /* Dark Turquoise */
 "#20B2AA",  /* Light Sea Green */
@@ -416,6 +426,7 @@ shareBtn.addEventListener("click", () => {
 "#66CDAA"   /* Medium Aquamarine */
 
       ];
+// sunset Colors options
       const sunsetColors = [
         "#FF4500",  /* Orange Red */
 "#FF6347",  /* Tomato */
@@ -434,6 +445,7 @@ shareBtn.addEventListener("click", () => {
 "#E9967A"   /* Dark Salmon */
 
       ];
+// floral Colors options
       const floralColors = [
         "#FF69B4",  /* Hot Pink - Rose */
 "#FFB6C1",  /* Light Pink - Cherry Blossom */
@@ -452,6 +464,7 @@ shareBtn.addEventListener("click", () => {
 "#DC143C",  /* Crimson - Rose Petal */
 
       ];
+// galaxy Colors options
       const galaxyColors = [
         "#0B3D91",  /* Deep Space Blue */
 "#1A1A40",  /* Cosmic Indigo */
@@ -470,6 +483,7 @@ shareBtn.addEventListener("click", () => {
 "#00FFFF"   /* Aqua - Starburst Glow */
 
       ];
+// autumn Colors options
       const autumnColors = [
        "#FF8C00",  /* Dark Orange */
 "#FFA500",  /* Orange */
@@ -487,6 +501,7 @@ shareBtn.addEventListener("click", () => {
 "#DAA520",  /* Goldenrod */
 "#9ACD32",  /* Yellow Green */
       ];
+// rainy Colors options
       const springColors=[
 "#FFB6C1",  /* Light Pink - Cherry Blossom */
 "#FFC0CB",  /* Pink - Spring Rose */
@@ -506,6 +521,7 @@ shareBtn.addEventListener("click", () => {
 
 
       ];
+// rainy Colors options
       const rainyColors = [
 "#708090",  /* Slate Gray - Rain Clouds */
 "#778899",  /* Light Slate Gray - Mist */
@@ -524,7 +540,8 @@ shareBtn.addEventListener("click", () => {
 "#468499"   /* Teal Blue - Rainy Mood */
 
       ];
-const winterColors = [
+// winter Colors options
+      const winterColors = [
 "#FFFFFF",  /* Snow White */
 "#F0F8FF",  /* Alice Blue - Frosty Sky */
 "#E0FFFF",  /* Light Cyan - Ice Glow */
@@ -541,7 +558,9 @@ const winterColors = [
 "#C0C0C0",  /* Silver - Frozen Surface */
 "#DCDCDC"   /* Gainsboro - Soft Snow Mist */
 
-];
+      ];
+
+
       // Render Palette (grid style)
       function renderPalette(paletteId, colors) {
         const palette = document.getElementById(paletteId);
@@ -594,12 +613,16 @@ cell.addEventListener("click", () => {
           table.appendChild(row);
         }
         palette.appendChild(table);
-      } // Close all palettes
+      } 
+      
+      // Close all palettes
       function closeAllPalettes() {
         document
           .querySelectorAll(".palette")
           .forEach((p) => p.classList.add("d-none"));
-      } // Attach toggle logic
+      } 
+      
+      // Attach toggle logic
     function attachToggle(btnId, paletteId, colors) {
   document.getElementById(btnId).addEventListener("click", function () {
     const palette = document.getElementById(paletteId);
@@ -760,6 +783,14 @@ closePhaseBtn.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const editor = document.getElementById("editor");
 
+  // Force plain text paste
+editor.addEventListener("paste", function(e) {
+  e.preventDefault();
+  const text = (e.clipboardData || window.clipboardData).getData("text/plain");
+  document.execCommand("insertText", false, text);
+});
+
+
   // DELETE
   document.getElementById("deleteText").addEventListener("click", () => {
     editor.innerHTML = "";   // clear contenteditable div
@@ -796,7 +827,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btnRedo").addEventListener("click", () => {
     document.execCommand("redo");
   });
-  // OBJECT FOR fontFamilies
+
+  //object for  fontFamilies
 const fontFamilies = [
   "Arial", "Verdana", "Tahoma", "Trebuchet MS", "Times New Roman",
   "Georgia", "Garamond", "Courier New", "Lucida Console", "Impact",
@@ -806,6 +838,7 @@ const fontFamilies = [
   "Rockwell", "Baskerville", "Copperplate", "Didot"
 ];
 
+// apply the font family
   const fontSelect = document.getElementById("fontSelect");
 fontFamilies.forEach(font => {
   const option = document.createElement("option");
@@ -815,11 +848,12 @@ fontFamilies.forEach(font => {
   fontSelect.appendChild(option);
 });
 
-  // Font Family
+  //select the Font 
   document.getElementById("fontSelect").addEventListener("change", (e) => {
     document.execCommand("fontName", false, e.target.value);
   });
 
+  // font size
 const fontSizes = [
   "8", "10", "12", "14", "16", "18", "20", "22", "24",
   "28", "32", "36", "40", "44", "48", "52", "60", "72",
@@ -827,6 +861,7 @@ const fontSizes = [
   "220", "240", "260", "280"
 ];
 
+// apply the font size
 const fontSizeSelect = document.getElementById("fontSizeSelect");
 fontSizes.forEach(size => {
   const option = document.createElement("option");
@@ -846,8 +881,6 @@ fontSizeSelect.addEventListener("change", (e) => {
 });
 
 
-
-  
   // Font Size (execCommand only supports 1–7)
   document.getElementById("fontSizeSelect").addEventListener("change", (e) => {
     document.execCommand("fontSize", false, e.target.value);
@@ -860,4 +893,23 @@ fontSizeSelect.addEventListener("change", (e) => {
     if (e.target.value === "right") document.execCommand("justifyRight");
     if (e.target.value === "justify") document.execCommand("justifyFull");
   });
+});
+const toggleBtn = document.getElementById("toggleBar");
+const toolbar = document.getElementById("textActions");
+
+toggleBtn.addEventListener("click", () => {
+  toolbar.classList.toggle("active");
+  body.classList.toggle("bar-active");
+
+  // Change icon
+  if (toolbar.classList.contains("active")) {
+    toggleBtn.innerHTML = '<i class="fas fa-angle-left"></i>'; // less than
+  } else {
+    toggleBtn.innerHTML = '<i class="fas fa-angle-right"></i>'; // greater than
+  }
+});
+// Toggle for mobile/mid screens
+document.getElementById("toggleRightPartMobile").addEventListener("click", function () {
+  const rightPart = document.querySelector(".rightPart");
+  rightPart.classList.toggle("active");
 });
