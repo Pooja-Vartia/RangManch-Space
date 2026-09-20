@@ -31,70 +31,74 @@
    
   </head>
   <body class="conatiner-fluid">
- <h3 class="d-flex align-items-center justify-content-between col-12 p-4 m-0" id="heading">
-  <span>
-    <i class="fa-solid fa-palette"></i>
-    CloudColors Dashboard
-    
-    <img
-      src="colored-pencils.png"
-      alt="loading"
-      class="img img-fluid w-30"
-      id="headingId"
-    />
-  </span>
-
-  <span class="d-flex" id="textActions">
-    <button type="button" class="btn me-2" id="deleteText" aria-label="Delete">
-      <i class="fa-solid fa-trash"></i> 
+    <!-- header of dashboard -->
+    <h3 class="d-flex align-items-center justify-content-between col-12 p-4 m-0" id="heading">
+      <span>
+        <i class="fa-solid fa-palette"></i>
+        CloudColors Dashboard
+        
+        <img
+          src="colored-pencils.png"
+          alt="loading"
+          class="img img-fluid w-30"
+          id="headingId"
+        />
+      </span>
+      <!-- Toggle button -->
+    <button id="toggleBar" class="btn">
+      <i class="fas fa-angle-right  text-primary"></i>
     </button>
-    <button type="button" class="btn" id="shareText" aria-label="Share ScreenShot">
-       <i class="fa-solid fa-cloud-arrow-down"></i>
-    </button>
-          
-  <!-- Bold -->
-  <button type="button" aria-label="clickButton" class="btn me-2" id="btnBold"><i class="fas fa-bold"></i></button>
-  
-  <!-- Italic -->
-  <button type="button" aria-label="clickButton" class="btn me-2" id="btnItalic"><i class="fas fa-italic"></i></button>
-  
-  <!-- Underline -->
-  <button type="button" aria-label="clickButton" class="btn me-2" id="btnUnderline"><i class="fas fa-underline"></i></button>
-  
-  <!-- Caps toggle -->
-  <button type="button" aria-label="clickButton" class="btn me-2" id="btnCaps"><i class="fas fa-text-height"></i></button>
 
+      <span class="d-flex" id="textActions">
+        <button type="button" class="btn me-2" id="deleteText" aria-label="Delete">
+          <i class="fa-solid fa-trash"></i> 
+        </button>
+        <button type="button" class="btn" id="shareText" aria-label="Share ScreenShot">
+          <i class="fa-solid fa-cloud-arrow-down"></i>
+        </button>
+              
+      <!-- Bold -->
+      <button type="button" aria-label="clickButton" class="btn me-2" id="btnBold"><i class="fas fa-bold"></i></button>
+      
+      <!-- Italic -->
+      <button type="button" aria-label="clickButton" class="btn me-2" id="btnItalic"><i class="fas fa-italic"></i></button>
+      
+      <!-- Underline -->
+      <button type="button" aria-label="clickButton" class="btn me-2" id="btnUnderline"><i class="fas fa-underline"></i></button>
+      
+      <!-- Caps toggle -->
+      <button type="button" aria-label="clickButton" class="btn me-2" id="btnCaps"><i class="fas fa-text-height"></i></button>
 
-  <button type="button" aria-label="clickButton" class="btn me-2" id="btnUndo"><i class="fas fa-undo"></i></button>
+      <!-- Undo Button -->
+      <button type="button" aria-label="clickButton" class="btn me-2" id="btnUndo"><i class="fas fa-undo"></i></button>
 
-  <button type="button" aria-label="clickButton" class="btn me-2" id="btnRedo"><i class="fas fa-redo"></i></button>
+      <!-- Redo Button -->
+      <button type="button" aria-label="clickButton" class="btn me-2" id="btnRedo"><i class="fas fa-redo"></i></button>
 
+      <!-- Font Family Dropdown -->
+      <select aria-label="selectFont" class="form me-2 w-10" id="fontSelect" >
+        <option value="" class="w-10" >Font</option>
+      </select>
+      
+      <!-- Font Size Dropdown -->
+      <select aria-label="selectSize" class="form me-2" id="fontSizeSelect">
+        <option value="">Size</option>
+      </select>
 
-  
-  <!-- Font Family Dropdown -->
-  <select aria-label="selectFont" class="form me-2 w-10" id="fontSelect" >
-    <option value="" class="w-10" >Font</option>
-  </select>
-  
-  <!-- Font Size Dropdown -->
-  <select aria-label="selectSize" class="form me-2" id="fontSizeSelect">
-    <option value="">Size</option>
-  </select>
+      <!-- Alignment Dropdown -->
+    <select aria-label="selectAlignment" class="form me-2" id="alignSelect">
+      <option value="">Align</option>
+      <option value="left">Left</option>
+      <option value="center">Center</option>
+      <option value="right">Right</option>
+      <option value="justify">Justify</option>
+    </select>
 
-  <!-- Alignment Dropdown -->
-<select aria-label="selectAlignment" class="form me-2" id="alignSelect">
-  <option value="">Align</option>
-  <option value="left">Left</option>
-  <option value="center">Center</option>
-  <option value="right">Right</option>
-  <option value="justify">Justify</option>
-</select>
+        </span>
+      
+    </h3>
 
-    </span>
-  
-</h3>
-
-   
+   <!-- (subHeader)background color dropdown options using carousel -->
     <div class="Middlebuttons d-flex overflow-auto mt-0">
       
       <div
@@ -223,6 +227,8 @@
               </div>
             </div>
           </div>
+
+           <!-- Slide 3 -->
           <div class="carousel-item">
             <div class="d-flex justify-content-around">
               <div class="col-2 col-sm-2 col-md-2 col-lg-2 dropdown">
@@ -255,11 +261,11 @@
               <div class="col-2 col-sm-2 col-md-2 col-lg-2 dropdown">
                 <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
                   id="springBtn">
-<i class="fas fa-seedling"></i>
+                  <i class="fas fa-seedling"></i>
                  Spring Colors</button>
                   <ul class="dropdown-menu " aria-labelledby="springtBtn"> 
                   <li> <div class="palette d-none" id="springPalette"></div>  </li> 
-                </ul>
+                  </ul>
               </div>
                <div class="col-2 col-sm-2 col-md-2 col-lg-2 dropdown">
                 <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" 
@@ -295,9 +301,10 @@
       </div>
     </div>
 
-   
-
+   <!-- Dashboard space   -->
     <div class="row mt-0" id="BoxElements">
+
+      <!-- Left part of dashboard -->
       <div class="col-lg-2 col-md-2 col-sm-6 col-6 order-lg-1 order-md-1 order-2 m-0 d-none d-md-block"  id="LeftPart">
         <!-- background color layer -->
         <div class="p-1">
@@ -339,6 +346,8 @@
             class="btn col-lg-6 col-md-6 col-sm-6 col-xs-6"
           />
         </div>
+
+        <!-- gradEnd -->
         <div class="p-1">
           <label for="gradEnd"><h6>Gradient End</h6></label>
           <br />
@@ -349,6 +358,8 @@
             class="btn col-lg-6 col-md-6 col-sm-6 col-xs-6"
           />
         </div>
+
+        <!-- Apply gradient -->
         <button
           type="button"
           class="btn btn-outline-dark text"
@@ -358,97 +369,96 @@
         </button>
 
         <hr />
+
+        <!-- Color Code Outcomes -->
         <div id="cssOutput"></div>
 
         <div class="p-3">
           <!-- rgb(101, 207, 101) -->
           <div class="palette d-none" id="paletteContainer"></div>
         </div>
-      </div>
+      </div> <!--End of the LeftPart-->
+
+       <!-- Middle part of dashboard -->
       <div class="col-lg-8 col-md-8 col-sm-12 col-12 order-lg-2 order-md-2 order-1 m-0" id="MiddlePart">
   
         <h3 class="text mt-5 center">CONTRAST CHEAKER</h3>
+
         <!--text area  using div-->
-<div
-  id="editor"
-  class="form-control plain-textarea mt-2"
-  contenteditable="true"
-  
-  placeholder="Type your paragraph here..."
-></div>
+        <div id="editor" class="form-control plain-textarea mt-2" contenteditable="true"           
+              placeholder="Type your paragraph here..." >
+        </div>
+      </div>  <!-- End of the MiddlePart-->
 
-
-
-
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-6 col-6 order-lg-3 order-md-2 order-3 m-0 d-none d-md-block rightPart">
+       <!-- Right part of dashboard -->
+      <div class="col-lg-2 col-md-2 col-sm-6 col-6 order-lg-3 order-md-2 order-3 m-0 rightPart">
+        <!-- Toggle Button -->
         <div>
-          <!-- Toggle Button -->
-<button class=" mt-2 btn btn-outline-dark" id="toggleBlindness">
-   <span class="phase-short-title" id="phaseTitle">Blindness Mode</span>
-  <i class="fa-solid fa-eye"></i>
-</button>
+          <button class=" mt-2 btn btn-outline-dark" id="toggleBlindness">
+            <span class="phase-short-title" id="phaseTitle">Blindness Mode</span>
+            <i class="fa-solid fa-eye"></i>
+          </button>
 
-<!-- Sidebar -->
-<div id="blindnessSidebar" class="blind-sidebar">
-  <button class="btn btn-sm btn-dark close-btn" id="closeBlindness">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
-  <h6 class="fw-bold text-primary text-center ">Color Blindness Modes</h6>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item p-2 blind-preview" id="vision-normal">👁️ Normal</li>
-    <li class="list-group-item p-2 blind-preview" id="vision-deuteranomaly">👁️ Deuteranomaly</li>
-    <li class="list-group-item p-2 blind-preview" id="vision-protanomaly">👁️ Protanomaly</li>
-    <li class="list-group-item p-2 blind-preview" id="vision-deuteranopia">👁️ Deuteranopia</li>
-    <li class="list-group-item p-2 blind-preview" id="vision-protanopia">👁️ Protanopia</li>
-    <li class="list-group-item p-2 blind-preview" id="vision-tritanomaly">👁️ Tritanomaly</li>
-    <li class="list-group-item p-2 blind-preview" id="vision-tritanopia">👁️ Tritanopia</li>
-    <li class="list-group-item p-2 blind-preview" id="vision-mono">👁️ Monochromacy</li>
-  </ul>
-</div>
+        <!-- Sidebar -->
+        <div id="blindnessSidebar" class="blind-sidebar">
+          <button class="btn btn-sm btn-dark close-btn" id="closeBlindness">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <h6 class="fw-bold text-primary text-center ">Color Blindness Modes</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item p-2 blind-preview" id="vision-normal">👁️ Normal</li>
+            <li class="list-group-item p-2 blind-preview" id="vision-deuteranomaly">👁️ Deuteranomaly</li>
+            <li class="list-group-item p-2 blind-preview" id="vision-protanomaly">👁️ Protanomaly</li>
+            <li class="list-group-item p-2 blind-preview" id="vision-deuteranopia">👁️ Deuteranopia</li>
+            <li class="list-group-item p-2 blind-preview" id="vision-protanopia">👁️ Protanopia</li>
+            <li class="list-group-item p-2 blind-preview" id="vision-tritanomaly">👁️ Tritanomaly</li>
+            <li class="list-group-item p-2 blind-preview" id="vision-tritanopia">👁️ Tritanopia</li>
+            <li class="list-group-item p-2 blind-preview" id="vision-mono">👁️ Monochromacy</li>
+          </ul>
+        </div>
 
-<!-- Right-side Preview Window -->
-<div id="phasePreviewWindow" class="phase-preview">
-  <button class="btn btn-sm btn-dark close-btn" id="closePhasePreview">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
-  <h6 class="fw-bold text-primary text-center mt-2" id="phaseTitle">Phase Preview</h6>
-  <!-- Textarea inside preview -->
-  <textarea id="phaseText" class="form-control mt-3" rows="12"
-    placeholder="Paste your text here to preview contrast..."></textarea>
-</div>
-<!-- CSS Output -->
+        <!-- Right-side Preview Window -->
+        <div id="phasePreviewWindow" class="phase-preview">
+          <button class="btn btn-sm btn-dark close-btn" id="closePhasePreview">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <h6 class="fw-bold text-primary text-center mt-2" id="phaseTitle">Phase Preview</h6>
+
+          <!-- Textarea inside preview -->
+          <textarea id="phaseText" class="form-control mt-3" rows="12"
+            placeholder="Paste your text here to preview contrast..."></textarea>
+        </div>
+        <!-- CSS Output -->
         <div class="mt-3">
+           <!-- Scalable Vector Graphics -->
           <svg viewBox="0 0 36 36" class="circular-chart img-fluid col-lg-8 col-md-6 col-sm-4 col-4">
             <path
-              class="circle-bg"
-              d="M18 2.0845
-       a 15.9155 15.9155 0 0 1 0 31.831
-       a 15.9155 15.9155 0 0 1 0 -31.831"
-            />
-            <path
-              id="progress"
-              class="circle"
-              stroke-dasharray="0, 100"
-              d="M18 2.0845
-       a 15.9155 15.9155 0 0 1 0 31.831
-       a 15.9155 15.9155 0 0 1 0 -31.831"
-            />
+               class="circle-bg"
+               d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"  />
+            <path 
+               id="progress" 
+               class="circle"
+               stroke-dasharray="0, 100"
+               d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"  />
             <text x="18" y="20.35" id="ratioText" class="percentage">0:1</text>
           </svg>
 
           <p class="text text-center  " id="contrast" style="font-weight: bold;font-family:'Times New Roman', Times, serif;">
             BEST COLOR CONTRAST
           </p>
+
+          <!-- Contrast ratio -->
           <p id="result" class="mt-5"></p>
         </div>
+
+        <!-- Random color Palette -->
          <div id="magicalDiec" class="mt-2">
            <button type="button" class="btn custom-btn" id="randomize" aria-label="Randomize">
              <i class="fa-solid fa-dice"></i>
              <span class="mt-5 text-primary fw-bold">SURPRISE ME</span>
            </button>
         </div>
-        </div>
+      </div>
 
         <!-- Save Palette -->
         <div>
@@ -458,45 +468,53 @@
           </button>
         </div>
         
-      </div>
-<!-- Mobile Bottom Nav -->
-<nav class="navbar fixed-bottom bg-light d-flex justify-content-around d-md-none">
-  <!-- Background -->
-  <div class="d-flex flex-column align-items-center">
-    <button id="bgIcon" class="btn p-0"><i class="fas fa-fill-drip fa-lg"></i></button>
-    <input type="color" id="bgColorMobile" style="display:none;" />
-  </div>
+      </div>  <!--End of the righpart-->
 
-  <!-- Text -->
-  <div class="d-flex flex-column align-items-center">
-    <button id="textIcon" class="btn p-0"><i class="fas fa-font fa-lg"></i></button>
-    <input type="color" id="textColorMobile" style="display:none;" />
-  </div>
+      <!-- Mobile Bottom Nav -->
+      <nav class="navbar fixed-bottom bg-light d-flex justify-content-around d-md-none">
+        <!-- Mobile Responsive Background -->
+         <div class="d-flex flex-column align-items-center">
+          <button id="bgIcon" class="btn p-0"><i class="fas fa-fill-drip fa-lg"></i></button>
+          <input type="color" id="bgColorMobile" style="display:none;" />
+         </div>
 
-  <!-- Gradient -->
-  <div class="d-flex flex-column align-items-center">
-    <button id="gradIcon" class="btn p-0"><i class="fas fa-palette fa-lg"></i></button>
-    <div id="gradInputs" style="display:none;">
-      <input type="color" id="gradStartMobile" />
-      <input type="color" id="gradEndMobile" />
+        <!-- Mobile Responsive Text -->
+         <div class="d-flex flex-column align-items-center">
+            <button id="textIcon" class="btn p-0"><i class="fas fa-font fa-lg"></i></button>
+            <input type="color" id="textColorMobile" style="display:none;" />
+         </div>
+
+        <!-- Mobile Responsive Gradient -->
+           <div class="d-flex flex-column align-items-center">
+            <button id="gradIcon" class="btn p-0"><i class="fas fa-palette fa-lg"></i></button>
+            <div id="gradInputs" style="display:none;">
+              <input type="color" id="gradStartMobile" />
+              <input type="color" id="gradEndMobile" />
+            </div>
+           </div>
+
+        <!-- Mobile Responsive Randomize -->
+           <div class="d-flex flex-column align-items-center">
+            <button id="randomizeMobile" class="btn p-0"><i class="fas fa-dice fa-lg"></i></button>
+           </div>
+
+        <!-- Eye (Blindness Mode Toggle for small/mid screens) -->
+          <div class="d-flex flex-column align-items-center">
+            <button id="toggleRightPartMobile" class="btn p-0">
+              <i class="fa-solid fa-eye fa-lg"></i>
+            </button>
+          </div>
+
+        <!-- Save Palette -->
+          <div class="d-flex flex-column align-items-center">
+            <button id="savePaletteMobile" class="btn p-0">
+              <!-- <i class="fas fa-cloud-arrow-down fa-lg"></i></button> -->
+          </div>
+      </nav> <!--End of Bottom navbar-->
+
+
     </div>
-  </div>
-
-  <!-- Randomize -->
-  <div class="d-flex flex-column align-items-center">
-    <button id="randomizeMobile" class="btn p-0"><i class="fas fa-dice fa-lg"></i></button>
-  </div>
-
-  <!-- Save Palette -->
-  <div class="d-flex flex-column align-items-center">
-    <button id="savePaletteMobile" class="btn p-0">
-      <!-- <i class="fas fa-cloud-arrow-down fa-lg"></i></button> -->
-  </div>
-</nav>
-
-
-    </div>
-
+ 
    <script src="ColorContrastFunctions.js"></script>
   </body>
 </html>
