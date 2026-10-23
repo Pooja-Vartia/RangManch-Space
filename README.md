@@ -26,6 +26,9 @@ Description : CloudColors Dashboard
 - Toolbar with text formatting actions
 - Color palettes and randomizer
 
+  ## Target Audience
+  ![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/5a9866e0e3d6b404ea820f6edd242edd7e8cdb8b/targetUserColorcontrast.JPG)
+
  # User Flow 
         HEADER --
         r1(1)-> Login/Signup page/User Verification
