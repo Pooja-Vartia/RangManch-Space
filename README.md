@@ -30,6 +30,10 @@ Description : CloudColors Dashboard
         HEADER --
         r1(1)-> Login/Signup page/User Verification
                 ├── Signup (Name,Email,passowrd,Confirm parrword)
+
+
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/b303beef6c0010960605b80aa280e10c9337e016/Screenshot%20(977).png)
+
                 ├── Verification
                 ├── Login (Email, Password)
         r1(a) → Dashboard Logo
