@@ -42,7 +42,8 @@ Description : CloudColors Dashboard
                 ├── Login (Email, Password)
 
 ![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/bee4d78cdaedee3993c80e6cac500a8f12075aa7/Screenshot%20(980).png)
-
+                
+                ├── Verification Done
 
         r1(a) → Dashboard Logo
                 |
