@@ -89,6 +89,10 @@ Description : CloudColors Dashboard
 ![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/36b2e2eaf54d95999e16a878ed599f75133467a7/Screenshot%20(992).png)
                  
                  ├── Randomize Button
+
+
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/3b904b189ca98ed59d4fc53417b0aadf4c9119cd/Screenshot%20(995).png)
+                 
                  └── Save Palette Option
 
 
