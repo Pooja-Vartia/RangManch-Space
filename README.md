@@ -79,6 +79,10 @@ Description : CloudColors Dashboard
                  
         r3(c) → Right Column
                  ├── Blindness Mode (7 Phases)
+
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/7fbf0cb76c6e67fd1d16db1c849643ceb70b10b4/Screenshot%20(965).png)
+
+                 
                  ├── Preview Window for Each Phase
                  ├── SVG Contrast Ratio Illustration
                  ├── Randomize Button
