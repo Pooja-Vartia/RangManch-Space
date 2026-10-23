@@ -1,8 +1,11 @@
 # RangManch-Space
 A creative playground for experimenting with color contrasts. Easily generate and test text colors, background shades, and gradient combinations to design accessible and visually appealing interfaces.
 
+
 # RangManch-Space
 Description : CloudColors Dashboard
+
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/main/colorCloudUpdate1.png?raw=true)
 
   A creative playground and responsive dashboard for testing color contrast and accessibility with blindness mode previews and text       formatting tools.
 - Test color contrast ratios for accessibility compliance.
@@ -13,7 +16,6 @@ Description : CloudColors Dashboard
 
 ## Features
 - Responsive design for mobile, tablet, and desktop
-![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/main/colorCloudUpdate1.png?raw=true)
 - Eye toggler for RightPart sidebar
 - Preview window for blindness modes
 - Toolbar with text formatting actions
