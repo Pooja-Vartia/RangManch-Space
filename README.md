@@ -55,6 +55,8 @@ Description : CloudColors Dashboard
                  ├── Cool Colors
                  ├── Neutral / Pastel / Earth / Ocean / Sunset / Floral / Galaxy / Autumn / Spring / Rainy / Winter
 
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/4050a17171e8f745cbfc9cb00844c91f247cc799/Screenshot%20(974).png)
+
         MAIN DASHBOARD ---
                 |
         r3(a) → Left Column
