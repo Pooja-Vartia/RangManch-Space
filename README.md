@@ -21,7 +21,7 @@ Description : CloudColors Dashboard
 - Toolbar with text formatting actions
 
 
-          ![image alt](https://raw.githubusercontent.com/Pooja-Vartia/RangManch-Space/d60f7b11f42c633762e1147d2646dedb6f32fc1e/Screenshot%20(975).png)
+![image alt](https://raw.githubusercontent.com/Pooja-Vartia/RangManch-Space/d60f7b11f42c633762e1147d2646dedb6f32fc1e/Screenshot%20(975).png)
 
   
 - Color palettes and randomizer
