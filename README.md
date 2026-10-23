@@ -65,6 +65,8 @@ Description : CloudColors Dashboard
                  ├── Gradient Start & End Picker
                  ├── Apply Gradient Button
                  ├── Result Display (RGB, HEX, HSL)
+
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/661645554bd57115902109897bc68760c02d35fa/Screenshot%20(959).png)
         r3(b) → Middle Column
                  ├── TextArea Space
                  ├── Live Color Contrast Checker
