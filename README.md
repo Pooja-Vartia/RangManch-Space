@@ -28,8 +28,12 @@ Description : CloudColors Dashboard
 
  # User Flow 
         HEADER --
-                |
+        r1(1)-> Login/Signup page/User Verification
+                ├── Signup (Name,Email,passowrd,Confirm parrword)
+                ├── Verification
+                ├── Login (Email, Password)
         r1(a) → Dashboard Logo
+                |
         r1(b) → TextActions Toolbar
                  ├── Delete
                  ├── Save
