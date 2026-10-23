@@ -85,6 +85,9 @@ Description : CloudColors Dashboard
                  
                  ├── Preview Window for Each Phase
                  ├── SVG Contrast Ratio Illustration
+
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/36b2e2eaf54d95999e16a878ed599f75133467a7/Screenshot%20(992).png)
+                 
                  ├── Randomize Button
                  └── Save Palette Option
 
