@@ -57,7 +57,7 @@ Description : CloudColors Dashboard
 
 ![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/4050a17171e8f745cbfc9cb00844c91f247cc799/Screenshot%20(974).png)
 
-        MAIN DASHBOARD ---
+       MAIN DASHBOARD ---
                 |
         r3(a) → Left Column
                  ├── Background Color Picker
@@ -67,6 +67,9 @@ Description : CloudColors Dashboard
                  ├── Result Display (RGB, HEX, HSL)
 
 ![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/661645554bd57115902109897bc68760c02d35fa/Screenshot%20(959).png)
+        
+        
+        
         r3(b) → Middle Column
                  ├── TextArea Space
                  ├── Live Color Contrast Checker
