@@ -73,6 +73,10 @@ Description : CloudColors Dashboard
         r3(b) → Middle Column
                  ├── TextArea Space
                  ├── Live Color Contrast Checker
+
+
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/721f67bd45c15b7a54fcd6dbab47652d23a3aab6/dashboardMiddlepart1.png)
+                 
         r3(c) → Right Column
                  ├── Blindness Mode (7 Phases)
                  ├── Preview Window for Each Phase
