@@ -16,6 +16,7 @@ Description : CloudColors Dashboard
 
 ## Features
 - Responsive design for mobile, tablet, and desktop
+  ![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/2647fd84a2e761f8f6b907ba22dab641ee329bd8/ResponsiveCloudColor.png)
 - Eye toggler for RightPart sidebar
 - Preview window for blindness modes
 - Toolbar with text formatting actions
