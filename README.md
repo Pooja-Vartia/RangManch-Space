@@ -30,6 +30,19 @@ Description : CloudColors Dashboard
 
 ![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/c6048a5a9ca53ff5bc148f9f241c1a9b2b7578dc/targetUsersRangMunch.png)
 
+# Understand your audience. Design with purpose.
+
+CloudColors Dashboard is a creative and intuitive platform that helps you explore, visualize, and analyze your target audience. The chart above shows the different user groups that make up our community, helping you understand who we design for and how to create more inclusive, accessible, and user-friendly experiences.
+
+Data-Driven Insights
+Make informed design decisions.
+
+Audience Focused
+Build for real people, real needs.
+
+Inclusive by Design
+A better web for everyone.
+
  # User Flow 
         HEADER --
         r1(1)-> Login/Signup page/User Verification
