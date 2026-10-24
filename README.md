@@ -14,17 +14,31 @@ Description : CloudColors Dashboard
 - Apply background/foreground colors, gradients, and random palettes.
 - Save and reuse custom palettes.
 
-## Features
+## ✨ Key Features
 
 ![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/94ad446da9eed7d7179b920e217c756f5bbbe40f/keyfeatureofColorContrast.JPG)
 
+### 🎨 Test Color Contrast
+Check color contrast ratios to help ensure accessibility compliance and improve text readability.
 
-- Responsive design for mobile, tablet, and desktop
-  ![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/2647fd84a2e761f8f6b907ba22dab641ee329bd8/ResponsiveCloudColor.png)
-- Eye toggler for RightPart sidebar
-- Preview window for blindness modes
-- Toolbar with text formatting actions
-- Color palettes and randomizer
+### 👁️ Color Blindness Preview
+Preview your designs in different color blindness modes to create more inclusive visual experiences.
+
+### 🔤 Text Formatting Toolbar
+Format text using bold, italic, underline, and other alignment options for better presentation.
+
+### 🎨 Background & Gradients
+Apply solid colors, gradients, and random palettes to explore creative color combinations.
+
+### 💾 Save Custom Palettes
+Save and reuse your favorite color palettes for consistent and efficient design workflows.
+
+### 📱 Responsive Design
+
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/2647fd84a2e761f8f6b907ba22dab641ee329bd8/ResponsiveCloudColor.png)
+
+Enjoy a seamless experience across mobile phones, tablets, and desktop devices.
+
 
   ## Target Audience
 
