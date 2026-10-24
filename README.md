@@ -28,6 +28,7 @@ Description : CloudColors Dashboard
 
   ## Target Audience
 
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/c6048a5a9ca53ff5bc148f9f241c1a9b2b7578dc/targetUsersRangMunch.png)
 
  # User Flow 
         HEADER --
