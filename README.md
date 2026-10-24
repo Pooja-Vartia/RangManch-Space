@@ -148,6 +148,30 @@ A better web for everyone.
                  └── Save Palette Option
 
 
+
+## 🛠️ Technologies Used
+
+CloudColors Dashboard is built using a combination of web technologies that work together to create an interactive, responsive, and user-friendly experience.
+
+### 🌐 HTML5
+Used to structure the web pages and organize the content of the dashboard.
+
+### 🎨 CSS3
+Used to style the interface, create attractive layouts, apply colors and gradients, and ensure responsive design.
+
+### ⚡ JavaScript
+Adds interactivity and powers features such as color contrast testing, color blindness previews, text formatting, and custom color palettes.
+
+### 🐘 PHP
+Used for server-side scripting and handling backend functionality where required.
+
+### 🗄️ MySQL
+Used for database management and storing user-related data or saved preferences where implemented.
+
+![image alt](https://github.com/Pooja-Vartia/RangManch-Space/blob/56ead892007a1858095b020bb476d2dbcbea37ce/technolyColorContrast.JPG)
+
+
+These technologies combine to make CloudColors Dashboard a creative and accessible platform for exploring colors and designing better digital experiences.
 ## Installation
 ```bash
 git clone https://github.com/Pooja-Vartia/RangManch-Space.git
